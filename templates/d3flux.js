@@ -14,7 +14,7 @@ require.config({
   }
 });
 
-require(["cola", "d3", "math", "FileSaver"], function (cola, d3, math, FileSaver) {
+require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSaver) {
 
   function main(model) {
     // Render a metabolic network representation of a cobra.Model object.
@@ -79,6 +79,7 @@ require(["cola", "d3", "math", "FileSaver"], function (cola, d3, math, FileSaver
     // Code for the figure manipulation buttons.
     d3.select("#{{ figure_id }}_options .reactionbutton").on("click", function() {
       // Show/hide the reaction control node points.
+      // _note: 把原来的HTML对象储存成jquery对象
       var $this = $(this);
       $this.toggleClass('btn-danger');
       d3.selectAll(".node.rxn")
@@ -212,11 +213,13 @@ require(["cola", "d3", "math", "FileSaver"], function (cola, d3, math, FileSaver
       }
     }
 
+    
     function plot_reverse_arrowhead(rxn) {
      return (((Math.abs(rxn.notes.map_info.flux) < 1E-8) || isNaN(rxn.notes.map_info.flux))
       && rxn.notes.map_info.reversibility);
     }
 
+    // _notes: 
     var metabolites = jQuery.extend(true, [], model.metabolites),
     reactions = jQuery.extend(true, [], model.reactions),
     nodes = [],
@@ -347,6 +350,7 @@ require(["cola", "d3", "math", "FileSaver"], function (cola, d3, math, FileSaver
         }
       }
 
+      // !important
       reaction['reactants'] = []
       reaction['products'] = []
 
@@ -384,6 +388,7 @@ require(["cola", "d3", "math", "FileSaver"], function (cola, d3, math, FileSaver
       rindex = nodes.length - 1;
 
 
+      // !important: drawing
       if (r_length >= p_length) {
         reaction.reactants.forEach(function (reactant, i) {
           // Add source -> rxn -> product triplets for drawing the line. For
@@ -425,6 +430,7 @@ require(["cola", "d3", "math", "FileSaver"], function (cola, d3, math, FileSaver
       r = nodes[link.rxn];
 
       links.push({source: s, target: r}, {source: r, target: t});
+      // _note: bilinks stand for what?
       bilinks.push({
         "source" : s,
         "target" : t,
@@ -865,6 +871,32 @@ require(["cola", "d3", "math", "FileSaver"], function (cola, d3, math, FileSaver
 
     });
 
+    d3.select("#{{ figure_id }}_options .animate_button").on("click", function() {
+      svg.selectAll(".metabolite")
+      .transition()
+      .style("fill", "#eb1818");
+      var graph = new Graph();
+      var myVertices = ['A','B','C','D','E','F','G','H','I'];
+      for (var i=0; i<myVertices.length; i++){
+        graph.addVertex(myVertices[i]);
+      }
+      graph.addEdge('A', 'B');
+      graph.addEdge('A', 'C');
+      graph.addEdge('A', 'D');
+      graph.addEdge('C', 'D');
+      graph.addEdge('C', 'G');
+      graph.addEdge('D', 'G');
+      graph.addEdge('D', 'H');
+      graph.addEdge('B', 'E');
+      graph.addEdge('B', 'F');
+      graph.addEdge('E', 'I');
+      console.log(graph.toString());
+    
+    
+      });
+
+
+
 
 
     svg.selectAll(".metabolite")
@@ -909,6 +941,101 @@ require(["cola", "d3", "math", "FileSaver"], function (cola, d3, math, FileSaver
 
   main({{ figure_id }}model);
 });
+
+
+
+// Graph function
+class Graph {
+  constructor() {
+    var vertices = []; //存储图中所有的顶点名字
+    var adjList = new Dictionary(); //用之前的一个字典来存储邻接表
+    this.addVertex = function (v) {
+      vertices.push(v);
+      adjList.set(v, []); //顶点为键，字典值为空数组
+    };
+    this.addEdge = function (v, w) {
+      adjList.get(v).push(w); //基于有向图
+      adjList.get(w).push(v); //基于无向图
+    };
+    this.toString = function () {
+      var s = '';
+      for (var i = 0; i < vertices.length; i++) {
+        s += vertices[i] + ' -> ';
+        var neighbors = adjList.get(vertices[i]);
+        for (var j = 0; j < neighbors.length; j++) {
+          s += neighbors[j] + ' ';
+        }
+        s += '\n';
+      }
+      return s;
+    };
+    var initializeColor = function () {
+      var color = [];
+      for (var i = 0; i < vertices.length; i++) {
+        color[vertices[i]] = 'white';
+      }
+      return color;
+    };
+  }
+}
+
+// Class Dictionary
+class Dictionary {
+  constructor() {
+    var items = {};
+    this.set = function (key, value) {
+      items[key] = value;
+    };
+    this.remove = function (key) {
+      if (this.has(key)) {
+        delete items[key];
+        return true;
+      }
+      return false;
+    };
+    this.has = function (key) {
+      return items.hasOwnProperty(key);
+    };
+    this.get = function (key) {
+      return this.has(key) ? items[key] : undefined;
+    };
+    this.clear = function () {
+      items = {};
+    };
+    this.size = function () {
+      return Object.keys(items).length;
+    };
+    this.keys = function () {
+      return Object.keys(items);
+    };
+    this.values = function () {
+      var values = [];
+      for (var k in items) {
+        if (this.has(k)) {
+          values.push(items[k]);
+        }
+      }
+      return values;
+    };
+    this.each = function (fn) {
+      for (var k in items) {
+        if (this.has(k)) {
+          fn(k, items[k]);
+        }
+      }
+    };
+    this.getItems = function () {
+      return items;
+    };
+  }
+}
+
+
+
+
+
+
+
 
 function Point(x, y) {
     this.x = x;

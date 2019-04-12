@@ -3,8 +3,12 @@
 </div>
 <div id="d3flux001_options">
   <button type="button" class="download btn btn-primary">Save JSON</button>
-  <button type="button" class="reactionbutton btn btn-success ">Show Reaction Nodes</button>
+  <button type="button" class="reactionbutton btn btn-success ">Show Reaction Nodes </button>
   <button type="button" class="svgbutton btn btn-info ">Download SVG</button>
+  <button type="button" class="path_button btn btn-warning ">Select Path</button>
+  <button type="button" class="marker_button btn btn-warning ">Select Marker</button>
+  <button type="button" class="reset_button btn btn-warning ">Reset</button>
+  <button type="button" class="animate_button btn btn-warning ">Show Path</button>
 </div>
 <script type="text/Javascript">
 var d3flux001model = {"metabolites": [{"id": "A", "name": "", "compartment": "", "formula": "", "notes": {"map_info": {"display_name": "A", "flux": 1000.0}}}, {"id": "B", "name": "", "compartment": "", "formula": "", "notes": {"map_info": {"display_name": "B", "align": "left", "flux": 1000.0}}}, {"id": "C", "name": "", "compartment": "", "formula": "", "notes": {"map_info": {"display_name": "C", "align": "upper right", "flux": 1000.0}}}, {"id": "D", "name": "", "compartment": "", "formula": "", "notes": {"map_info": {"display_name": "D", "flux": 1000.0}}}, {"id": "E", "name": "", "compartment": "", "formula": "", "notes": {"map_info": {"display_name": "E", "flux": 1000.0}}}, {"id": "P", "name": "", "compartment": "", "formula": "", "notes": {"map_info": {"display_name": "P", "align": "lower center", "flux": 1000.0}}}], "reactions": [{"id": "R1", "name": "", "metabolites": {"A": 1}, "lower_bound": 0, "upper_bound": 1000, "gene_reaction_rule": "", "notes": {"map_info": {"hidden": true, "reversibility": false, "flux": 1000.0}}}, {"id": "R2", "name": "", "metabolites": {"B": 1}, "lower_bound": -1000, "upper_bound": 1000, "gene_reaction_rule": "", "notes": {"map_info": {"hidden": true, "reversibility": true, "flux": 1000.0}}}, {"id": "R3", "name": "", "metabolites": {"P": -1}, "lower_bound": 0, "upper_bound": 1000, "gene_reaction_rule": "", "notes": {"map_info": {"hidden": true, "reversibility": false, "flux": 1000.0}}}, {"id": "R4", "name": "", "metabolites": {"E": -1}, "lower_bound": 0, "upper_bound": 1000, "gene_reaction_rule": "", "objective_coefficient": 1.0, "notes": {"map_info": {"hidden": true, "reversibility": false, "flux": 1000.0}}}, {"id": "R5", "name": "", "metabolites": {"A": -1, "B": 1}, "lower_bound": -1000, "upper_bound": 1000, "gene_reaction_rule": "", "notes": {"map_info": {"reversibility": true, "display_name": "R5\ntest", "flux": 0.0}}}, {"id": "R6", "name": "", "metabolites": {"A": -1, "C": 1}, "lower_bound": 0, "upper_bound": 0, "gene_reaction_rule": "", "notes": {"map_info": {"reversibility": false, "group": "ko"}}}, {"id": "R7", "name": "", "metabolites": {"A": -1, "D": 1}, "lower_bound": 0, "upper_bound": 1000, "gene_reaction_rule": "", "notes": {"map_info": {"reversibility": false, "flux": 1000.0}}}, {"id": "R8", "name": "", "metabolites": {"B": -1, "C": 1}, "lower_bound": -1000, "upper_bound": 1000, "gene_reaction_rule": "", "notes": {"map_info": {"reversibility": true, "flux": 1000.0}}}, {"id": "R9", "name": "", "metabolites": {"B": -1, "P": 1}, "lower_bound": 0, "upper_bound": 1000, "gene_reaction_rule": "", "notes": {"map_info": {"reversibility": false, "flux": 0.0}}}, {"id": "R10", "name": "", "metabolites": {"C": -1, "D": -1, "E": 1, "P": 1}, "lower_bound": 0, "upper_bound": 1000, "gene_reaction_rule": "", "notes": {"map_info": {"reversibility": false, "flux": 1000.0}}}], "genes": [], "id": "simple_model", "compartments": {"": ""}, "notes": {"map_info": {}}};
@@ -23,7 +27,7 @@ require.config({
   }
 });
 
-require(["cola", "d3", "math", "FileSaver"], function (cola, d3, math, FileSaver) {
+require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSaver) {
 
   function main(model) {
     // Render a metabolic network representation of a cobra.Model object.
@@ -60,11 +64,9 @@ require(["cola", "d3", "math", "FileSaver"], function (cola, d3, math, FileSaver
     // link distance are currently hard-coded in -- probably should change
     // this?
     var force = cola.d3adaptor()
-      .flowLayout('y', 15)
-			.linkDistance(30)
+      .linkDistance(30)
+      
       .size([width, height]);
-
-
     // var force = d3.layout.force()
     //   .linkDistance(30)
     //   .charge(-100)
@@ -88,6 +90,7 @@ require(["cola", "d3", "math", "FileSaver"], function (cola, d3, math, FileSaver
     // Code for the figure manipulation buttons.
     d3.select("#d3flux001_options .reactionbutton").on("click", function() {
       // Show/hide the reaction control node points.
+      // _note: 把原来的HTML对象储存成jquery对象
       var $this = $(this);
       $this.toggleClass('btn-danger');
       d3.selectAll(".node.rxn")
@@ -221,11 +224,13 @@ require(["cola", "d3", "math", "FileSaver"], function (cola, d3, math, FileSaver
       }
     }
 
+    
     function plot_reverse_arrowhead(rxn) {
      return (((Math.abs(rxn.notes.map_info.flux) < 1E-8) || isNaN(rxn.notes.map_info.flux))
       && rxn.notes.map_info.reversibility);
     }
 
+    // _notes: 
     var metabolites = jQuery.extend(true, [], model.metabolites),
     reactions = jQuery.extend(true, [], model.reactions),
     nodes = [],
@@ -356,6 +361,7 @@ require(["cola", "d3", "math", "FileSaver"], function (cola, d3, math, FileSaver
         }
       }
 
+      // !important
       reaction['reactants'] = []
       reaction['products'] = []
 
@@ -393,6 +399,7 @@ require(["cola", "d3", "math", "FileSaver"], function (cola, d3, math, FileSaver
       rindex = nodes.length - 1;
 
 
+      // !important: drawing
       if (r_length >= p_length) {
         reaction.reactants.forEach(function (reactant, i) {
           // Add source -> rxn -> product triplets for drawing the line. For
@@ -434,6 +441,7 @@ require(["cola", "d3", "math", "FileSaver"], function (cola, d3, math, FileSaver
       r = nodes[link.rxn];
 
       links.push({source: s, target: r}, {source: r, target: t});
+      // _note: bilinks stand for what?
       bilinks.push({
         "source" : s,
         "target" : t,
@@ -480,6 +488,7 @@ require(["cola", "d3", "math", "FileSaver"], function (cola, d3, math, FileSaver
       .enter()
       .append("marker")
       .attr("id", function (d) { return "d3flux001" + d.id; })
+      // hari: viewBox may refer to hover box
       .attr("viewBox", "0 0 10 10")
       .attr("refX", 1)
       .attr("refY", 5)
@@ -490,6 +499,7 @@ require(["cola", "d3", "math", "FileSaver"], function (cola, d3, math, FileSaver
       .attr("class", function (d) {
         var labels = "endmarker"
         if ('flux' in d.notes.map_info) {
+          // hari: flux = 0 means this reaction is inactive
           if (d.notes.map_info.flux == 0) {
             labels = labels.concat(" inactive");
           }
@@ -832,6 +842,7 @@ require(["cola", "d3", "math", "FileSaver"], function (cola, d3, math, FileSaver
       catch(err){ return 5; }
     }
 
+    // hari: !important
     svg.selectAll(".link")
       .attr("stroke-width", function (d) {return get_flux_width(d.rxn);})
       .attr("stroke", function (d) {return get_flux_stroke(d.rxn);})
@@ -842,6 +853,62 @@ require(["cola", "d3", "math", "FileSaver"], function (cola, d3, math, FileSaver
       .attr("markerHeight", markerscale)
       .select("path")
       .attr("fill", get_flux_stroke);
+
+    // hari: btn test
+    d3.select("#d3flux001_options .marker_button").on("click", function() {
+      svg.selectAll("marker")
+      .select("path")
+      .transition()
+      .style("fill", "purple");
+    });
+
+    d3.select("#d3flux001_options .path_button").on("click", function() {
+      svg.selectAll(".link")
+      // color is not effective
+      .transition()
+      .style("stroke", "#006633");
+    });
+
+    d3.select("#d3flux001_options .reset_button").on("click", function() {
+      svg.selectAll(".link")
+      // color is not effective
+      .transition()
+      .style("stroke", function (d) {return get_flux_stroke(d.rxn);});
+
+      svg.selectAll("marker")
+      .select("path")
+      .transition()
+      .style("fill", get_flux_stroke);
+
+    });
+
+    d3.select("#d3flux001_options .animate_button").on("click", function() {
+      svg.selectAll(".metabolite")
+      .transition()
+      .style("fill", "#eb1818");
+      var graph = new Graph();
+      var myVertices = ['A','B','C','D','E','F','G','H','I'];
+      for (var i=0; i<myVertices.length; i++){
+        graph.addVertex(myVertices[i]);
+      }
+      graph.addEdge('A', 'B');
+      graph.addEdge('A', 'C');
+      graph.addEdge('A', 'D');
+      graph.addEdge('C', 'D');
+      graph.addEdge('C', 'G');
+      graph.addEdge('D', 'G');
+      graph.addEdge('D', 'H');
+      graph.addEdge('B', 'E');
+      graph.addEdge('B', 'F');
+      graph.addEdge('E', 'I');
+      console.log(graph.toString());
+    
+    
+      });
+
+
+
+
 
     svg.selectAll(".metabolite")
       .attr("r", get_node_radius);
@@ -885,6 +952,101 @@ require(["cola", "d3", "math", "FileSaver"], function (cola, d3, math, FileSaver
 
   main(d3flux001model);
 });
+
+
+
+// Graph function
+class Graph {
+  constructor() {
+    var vertices = []; //存储图中所有的顶点名字
+    var adjList = new Dictionary(); //用之前的一个字典来存储邻接表
+    this.addVertex = function (v) {
+      vertices.push(v);
+      adjList.set(v, []); //顶点为键，字典值为空数组
+    };
+    this.addEdge = function (v, w) {
+      adjList.get(v).push(w); //基于有向图
+      adjList.get(w).push(v); //基于无向图
+    };
+    this.toString = function () {
+      var s = '';
+      for (var i = 0; i < vertices.length; i++) {
+        s += vertices[i] + ' -> ';
+        var neighbors = adjList.get(vertices[i]);
+        for (var j = 0; j < neighbors.length; j++) {
+          s += neighbors[j] + ' ';
+        }
+        s += '\n';
+      }
+      return s;
+    };
+    var initializeColor = function () {
+      var color = [];
+      for (var i = 0; i < vertices.length; i++) {
+        color[vertices[i]] = 'white';
+      }
+      return color;
+    };
+  }
+}
+
+// Class Dictionary
+class Dictionary {
+  constructor() {
+    var items = {};
+    this.set = function (key, value) {
+      items[key] = value;
+    };
+    this.remove = function (key) {
+      if (this.has(key)) {
+        delete items[key];
+        return true;
+      }
+      return false;
+    };
+    this.has = function (key) {
+      return items.hasOwnProperty(key);
+    };
+    this.get = function (key) {
+      return this.has(key) ? items[key] : undefined;
+    };
+    this.clear = function () {
+      items = {};
+    };
+    this.size = function () {
+      return Object.keys(items).length;
+    };
+    this.keys = function () {
+      return Object.keys(items);
+    };
+    this.values = function () {
+      var values = [];
+      for (var k in items) {
+        if (this.has(k)) {
+          values.push(items[k]);
+        }
+      }
+      return values;
+    };
+    this.each = function (fn) {
+      for (var k in items) {
+        if (this.has(k)) {
+          fn(k, items[k]);
+        }
+      }
+    };
+    this.getItems = function () {
+      return items;
+    };
+  }
+}
+
+
+
+
+
+
+
 
 function Point(x, y) {
     this.x = x;
