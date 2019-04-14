@@ -224,7 +224,7 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
       }
     }
 
-    
+    // _notes: return a boolean of whether to draw reverse arrowhead
     function plot_reverse_arrowhead(rxn) {
      return (((Math.abs(rxn.notes.map_info.flux) < 1E-8) || isNaN(rxn.notes.map_info.flux))
       && rxn.notes.map_info.reversibility);
@@ -243,6 +243,7 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
     var mfluxes = [];
     metabolites.forEach(function(metabolite) {
       // Don't add hidden reactions
+      console.log(metabolite);
       if ('notes' in metabolite) {
         if ('map_info' in metabolite.notes) {
           if (metabolite.notes.map_info.hidden) {
@@ -461,6 +462,8 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
         }
       }
     });
+
+
 
     // Modify link strength based on flux:
     // link_strength_scale = d3.scale.pow().exponent(1/2)

@@ -213,14 +213,15 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
       }
     }
 
-    
+    // _note: return a boolean of whether to draw reverse arrowhead
     function plot_reverse_arrowhead(rxn) {
      return (((Math.abs(rxn.notes.map_info.flux) < 1E-8) || isNaN(rxn.notes.map_info.flux))
       && rxn.notes.map_info.reversibility);
     }
 
-    // _notes: 
-    var metabolites = jQuery.extend(true, [], model.metabolites),
+    // _note: need to distinguish links and bilinks
+    // _ans: links include the edge between a source node and a reaction node.
+    metabolites = jQuery.extend(true, [], model.metabolites),
     reactions = jQuery.extend(true, [], model.reactions),
     nodes = [],
     node_lookup = {},
@@ -231,7 +232,6 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
 
     var mfluxes = [];
     metabolites.forEach(function(metabolite) {
-      // Don't add hidden reactions
       if ('notes' in metabolite) {
         if ('map_info' in metabolite.notes) {
           if (metabolite.notes.map_info.hidden) {
@@ -357,6 +357,7 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
       for (var item in reaction.metabolites) {
         if (reaction.metabolites[item] > 0) {
           if (item in node_lookup) {
+            // _notes: reaction.metabolites[item] = 1 -> product, = -1 -> reactant
             // Only add if the node hasn't been hidden
             reaction.products.push(item);
           }
@@ -396,11 +397,13 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
           // lines will overlap)
           mlinks.push({
             "source" : node_lookup[reactant],
+            // _note: ? i % p_length - 1 ？
             "target" : node_lookup[reaction.products[i % p_length]],
             "rxn" : rindex
           });
         });
-      } else {
+      } // else: products > reactants
+      else {
         reaction.products.forEach(function (product, i) {
           mlinks.push({
             "source" : node_lookup[reaction.reactants[i % r_length]],
@@ -409,10 +412,12 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
           });
         });
       }
+
     });
 
     // Build the reaction stoichiometry database to remember which nodes are
     // reactants and which are products. Used to calculate path angles.
+    // _note: rxn_stoich is the database.
     mlinks.forEach(function(link) {
       if (link.rxn in rxn_stoich) {
         rxn_stoich[link.rxn][link.source] = 1;
@@ -424,18 +429,19 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
       }
     });
 
-    mlinks.forEach(function(link) {
+    mlinks.forEach(function(link, i) {
       var s = nodes[link.source],
       t = nodes[link.target],
       r = nodes[link.rxn];
 
+      // _note: push 2 objects into links
       links.push({source: s, target: r}, {source: r, target: t});
-      // _note: bilinks stand for what?
+      //_note: bilinks stand for what?
       bilinks.push({
         "source" : s,
         "target" : t,
         "rxn" : r,
-        "rstoich" : rxn_stoich[link.rxn],
+        "rstoich" : rxn_stoich[link.rxn]
       });
     });
 
@@ -450,6 +456,8 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
         }
       }
     });
+
+
 
     // Modify link strength based on flux:
     // link_strength_scale = d3.scale.pow().exponent(1/2)
@@ -477,7 +485,6 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
       .enter()
       .append("marker")
       .attr("id", function (d) { return "{{ figure_id }}" + d.id; })
-      // hari: viewBox may refer to hover box
       .attr("viewBox", "0 0 10 10")
       .attr("refX", 1)
       .attr("refY", 5)
@@ -488,7 +495,7 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
       .attr("class", function (d) {
         var labels = "endmarker"
         if ('flux' in d.notes.map_info) {
-          // hari: flux = 0 means this reaction is inactive
+          // _note: flux = 0 means this reaction is inactive
           if (d.notes.map_info.flux == 0) {
             labels = labels.concat(" inactive");
           }
@@ -530,6 +537,7 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
         var labels = "link {{ figure_id }}" + d.rxn.id;
         if ('flux' in d.rxn.notes.map_info) {
           if (d.rxn.notes.map_info.flux == 0) {
+            // _note: use labels to select the link.
             labels = labels.concat(" inactive");
           }
         }
@@ -872,28 +880,50 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
     });
 
     d3.select("#{{ figure_id }}_options .animate_button").on("click", function() {
-      svg.selectAll(".metabolite")
-      .transition()
-      .style("fill", "#eb1818");
-      var graph = new Graph();
-      var myVertices = ['A','B','C','D','E','F','G','H','I'];
-      for (var i=0; i<myVertices.length; i++){
-        graph.addVertex(myVertices[i]);
-      }
-      graph.addEdge('A', 'B');
-      graph.addEdge('A', 'C');
-      graph.addEdge('A', 'D');
-      graph.addEdge('C', 'D');
-      graph.addEdge('C', 'G');
-      graph.addEdge('D', 'G');
-      graph.addEdge('D', 'H');
-      graph.addEdge('B', 'E');
-      graph.addEdge('B', 'F');
-      graph.addEdge('E', 'I');
-      console.log(graph.toString());
-    
-    
+      //svg.selectAll(".metabolite")
+      graph = new Graph();
+      // add unhidden metabolites
+
+      // nodes.forEach(function(metabolite) {
+      //   //graph.vertices.addVertex(metabolite);
+      //   console.log(metabolite.id);
+      //   graph.addVertex(metabolite.id);
+      // });
+
+      bilinks.forEach(function(link, i) {
+        //console.log(link.source.id, " -> ",link.target.id);
+        // if (!link.source.id in graph.getVertives) {
+        //   graph.addVertex(link.source.id);
+        // }
+
+        // _debug: can't use id cause id will be identical
+        //console.log(link.source.id, " -> ",link.target.id);
+        graph.addVertex(link.source.id);
+        console.log(link.rxn.id);
+        graph.addEdge(link.source.id, link.target.id);
       });
+      
+      // graph.addEdge('13dpg_c', '2pg_c');
+      // console.log(graph.toString());
+
+      // graph.addEdge('A', 'B');
+      // graph.addEdge('A', 'C');
+      // graph.addEdge('A', 'D');
+      // graph.addEdge('C', 'D');
+      // graph.addEdge('C', 'G');
+      // graph.addEdge('D', 'G');
+      // graph.addEdge('D', 'H');
+      // graph.addEdge('B', 'E');
+      // graph.addEdge('B', 'F');
+      // graph.addEdge('E', 'I');
+
+
+      // console.log(graph.toString());
+      function printNode(value) {
+        console.log('Visited vertex: ' + value);
+      }
+      graph.dfs(printNode);
+    });
 
 
 
@@ -943,20 +973,26 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
 });
 
 
-
 // Graph function
 class Graph {
   constructor() {
     var vertices = []; //存储图中所有的顶点名字
-    var adjList = new Dictionary(); //用之前的一个字典来存储邻接表
+    var adjList = new Dictionary(); //用字典来存储邻接表
     this.addVertex = function (v) {
+      // Ignore existed vertex.
+      if (vertices.indexOf(v) in vertices) {
+        return;
+      }
       vertices.push(v);
       adjList.set(v, []); //顶点为键，字典值为空数组
     };
     this.addEdge = function (v, w) {
       adjList.get(v).push(w); //基于有向图
-      adjList.get(w).push(v); //基于无向图
+      //adjList.get(w).push(v); //基于无向图
     };
+    this.hasVertex = function (v) {
+      return v in vertices;
+    }
     this.toString = function () {
       var s = '';
       for (var i = 0; i < vertices.length; i++) {
@@ -976,6 +1012,30 @@ class Graph {
       }
       return color;
     };
+
+    this.dfs = function(callback){
+      var color = initializeColor(); //前面的颜色数组
+      for (var i=0; i<vertices.length; i++){
+          if (color[vertices[i]] === 'white'){
+              dfsVisit(vertices[i], color, callback); //递归调用未被访问过的顶点
+          }
+      }
+  };
+  var dfsVisit = function(u, color, callback){
+      color[u] = 'grey';
+      if (callback) {
+          callback(u);
+      }
+      var neighbors = adjList.get(u); //邻接表
+      for (var i=0; i<neighbors.length; i++){
+          var w = neighbors[i];
+          if (color[w] === 'white'){
+              dfsVisit(w, color, callback); //添加顶点w入栈
+          }
+      }
+      color[u] = 'black';
+  };
+
   }
 }
 
