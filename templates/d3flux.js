@@ -903,8 +903,13 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
         // _debug: can't use id cause id will be identical
         //console.log(link.source.id, " -> ",link.target.id);
         graph.addVertex(link.source.id);
-        console.log(link.rxn.id);
         graph.addEdge(link.source.id, link.target.id);
+        svg.select("#" + link.id)
+        .transition()
+        .duration(700)
+        .delay( i * 700)
+        .style("stroke", "#006633");
+
       });
       
       // graph.addEdge('13dpg_c', '2pg_c');
@@ -923,10 +928,10 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
 
 
       // console.log(graph.toString());
-      function printNode(value) {
-        console.log('Visited vertex: ' + value);
-      }
-      graph.dfs(printNode);
+      // function printNode(value) {
+      //   console.log('Visited vertex: ' + value);
+      // }
+      // graph.dfs(printNode);
     });
 
 
