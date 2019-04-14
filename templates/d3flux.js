@@ -441,7 +441,8 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
         "source" : s,
         "target" : t,
         "rxn" : r,
-        "rstoich" : rxn_stoich[link.rxn]
+        "rstoich" : rxn_stoich[link.rxn],
+        "id": "bilink_" + i
       });
     });
 
@@ -542,6 +543,9 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
           }
         }
         return labels;
+      })
+      .attr("id", function (d) {
+        return d.id;
       })
       .attr("marker-end", function(d) {
         return "url(#{{ figure_id }}" + d.rxn.id + ")"; 
