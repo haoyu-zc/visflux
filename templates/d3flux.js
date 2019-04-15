@@ -589,7 +589,7 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
       .on("click", function (d) {
         d3.select("#info")
         .property("value", d.id);
-        console.log("clicked!");
+        console.log(d.id);
       });
 
 
@@ -940,13 +940,15 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
         
         console.log('Visited vertex: ' + value);
         count++;
-        svg.select("#" + value)
+        svg.select("circle#" + value)
         .transition()
         .duration(700)
         .delay(count* 700)
         .style("fill", "red");
       }
-      graph.dfs("acald_c", printNode);
+
+      var select = d3.select("#info").property("value");
+      graph.dfs(select, printNode);
     });
 
 
