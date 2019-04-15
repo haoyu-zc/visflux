@@ -574,13 +574,23 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
       force.resume();
     }
 
+    function showInfo(d) {
+      return d.id;
+    }
+
     // define the nodes
     var node = svg.append("g").selectAll(".node")
       .data(nodes)
       .enter()
       .append("g")
       .on('dblclick', releasenode)
-      .call(node_drag);
+      .call(node_drag)
+      // Show node info on click
+      .on("click", function (d) {
+        d3.select("#info")
+        .property("value", d.id);
+        console.log("clicked!");
+      });
 
 
     node.append("circle")
@@ -882,6 +892,7 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
       .style("fill", get_flux_stroke);
 
       svg.selectAll("circle")
+      .transition()
       .style("fill", function(d) { 
         if (d.type != 'rxn') {
           if ('color' in d.notes.map_info) {
@@ -935,11 +946,13 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
         .delay(count* 700)
         .style("fill", "red");
       }
-      graph.bfs("acald_c", printNode);
+      graph.dfs("acald_c", printNode);
     });
 
 
-d3.select(".test_button").on("click", function () {
+d3.select("#{{ figure_id }}_options .test_button").on("click", function () {
+  d3.select("#info")
+  .property("value", "test");
   graph = new Graph();
   var myVertices = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
   for (var i = 0; i < myVertices.length; i++) {
@@ -1078,7 +1091,45 @@ class Graph {
 
     
 
-    this.dfs = function(s, callback){
+    this.dfs2 = function (s, callback) {
+      var color = initializeColor(); //前面的颜色数组
+      // for (var i=0; i<vertices.length; i++){
+      //     if (color[vertices[i]] === 'white'){
+      //         dfsVisit(vertices[i], color, callback); //递归调用未被访问过的顶点
+      //     }
+      // }
+      if (color[s] == "white") {
+        dfsVisit2(s, color, callback);
+      }
+    };
+    var dfsVisit2 = function (u, color, callback) {
+      color[u] = 'grey';
+      if (callback) {
+        callback(u);
+      }
+      var neighbors = adjList.get(u); //邻接表
+
+
+      for (var i = 0; i < neighbors.length; i++) {
+        var w = neighbors[i];
+        // Stop recursion when end vertex is visted.
+        if (neighbors.length == 0)
+        {
+          color[u] = 'black';
+          callback(u);
+          return;
+        }
+
+        if (color[w] === 'white') {
+          dfsVisit2(w, color, callback); //添加顶点w入栈
+        }
+
+      }
+      color[u] = 'black';
+    };
+
+
+    this.dfs = function (s, callback) {
       var color = initializeColor(); //前面的颜色数组
       // for (var i=0; i<vertices.length; i++){
       //     if (color[vertices[i]] === 'white'){
@@ -1088,43 +1139,43 @@ class Graph {
       if (color[s] == "white") {
         dfsVisit(s, color, callback);
       }
-  };
-  var dfsVisit = function(u, color, callback){
+    };
+    var dfsVisit = function (u, color, callback) {
       color[u] = 'grey';
       if (callback) {
-          callback(u);
+        callback(u);
       }
       var neighbors = adjList.get(u); //邻接表
-      for (var i=0; i<neighbors.length; i++){
-          var w = neighbors[i];
-          if (color[w] === 'white'){
-              dfsVisit(w, color, callback); //添加顶点w入栈
-          }
+      for (var i = 0; i < neighbors.length; i++) {
+        var w = neighbors[i];
+        if (color[w] === 'white') {
+          dfsVisit(w, color, callback); //添加顶点w入栈
+        }
       }
       color[u] = 'black';
-  };
+    };
 
-this.bfs = function(v, callback){
-    var color = initializeColor(),
+    this.bfs = function (v, callback) {
+      var color = initializeColor(),
         queue = new Queue(); //创建一个队列
-    queue.enqueue(v); //入队列
-    while (!queue.isEmpty()){
+      queue.enqueue(v); //入队列
+      while (!queue.isEmpty()) {
         var u = queue.dequeue(), //出队列
-            neighbors = adjList.get(u); //邻接表
+          neighbors = adjList.get(u); //邻接表
         color[u] = 'grey'; //发现了但还未完成对其的搜素
-        for (var i=0; i<neighbors.length; i++){
-            var w = neighbors[i]; //顶点名
-            if (color[w] === 'white'){
-                color[w] = 'grey'; //发现了它
-                queue.enqueue(w); //入队列循环
-            }
+        for (var i = 0; i < neighbors.length; i++) {
+          var w = neighbors[i]; //顶点名
+          if (color[w] === 'white') {
+            color[w] = 'grey'; //发现了它
+            queue.enqueue(w); //入队列循环
+          }
         }
         color[u] = 'black'; //已搜索过
         if (callback) {
-            callback(u);
+          callback(u);
         }
-    }
-};
+      }
+    };
 
   }
 }
