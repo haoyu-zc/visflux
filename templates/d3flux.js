@@ -608,7 +608,7 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
         }
         return labels;
       })
-      .attr("id", function(d) { return d.id; })
+      .attr("id", function(d) { return "_" + d.id; })
       .attr("r", 5)
       .style("fill", function(d) { 
         if (d.type != 'rxn') {
@@ -940,7 +940,7 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
         
         console.log('Visited vertex: ' + value);
         count++;
-        svg.select("circle#" + value)
+        svg.select("circle#" + "_" + value)
         .transition()
         .duration(700)
         .delay(count* 700)
