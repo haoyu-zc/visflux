@@ -881,6 +881,16 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
       .transition()
       .style("fill", get_flux_stroke);
 
+      svg.selectAll("circle")
+      .style("fill", function(d) { 
+        if (d.type != 'rxn') {
+          if ('color' in d.notes.map_info) {
+            return d.notes.map_info.color;
+          } else {
+            return '#1f77b4';
+          }
+        } else return "";});
+
     });
 
     d3.select("#{{ figure_id }}_options .animate_button").on("click", function() {
@@ -903,39 +913,56 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
         // _debug: can't use id cause id will be identical
         //console.log(link.source.id, " -> ",link.target.id);
         graph.addVertex(link.source.id);
+        graph.addVertex(link.target.id);
         graph.addEdge(link.source.id, link.target.id);
-        svg.select("#" + link.id)
-        .transition()
-        .duration(700)
-        .delay( i * 700)
-        .style("stroke", "#006633");
+        // svg.select("#" + link.id)
+        // .transition()
+        // .duration(700)
+        // .delay( i * 700)
+        // .style("stroke", "#006633");
 
       });
       
-      // graph.addEdge('13dpg_c', '2pg_c');
-      // console.log(graph.toString());
-
-      // graph.addEdge('A', 'B');
-      // graph.addEdge('A', 'C');
-      // graph.addEdge('A', 'D');
-      // graph.addEdge('C', 'D');
-      // graph.addEdge('C', 'G');
-      // graph.addEdge('D', 'G');
-      // graph.addEdge('D', 'H');
-      // graph.addEdge('B', 'E');
-      // graph.addEdge('B', 'F');
-      // graph.addEdge('E', 'I');
-
-
-      // console.log(graph.toString());
-      // function printNode(value) {
-      //   console.log('Visited vertex: ' + value);
-      // }
-      // graph.dfs(printNode);
+      console.log(graph.toString());
+      var count = 0;
+      function printNode(value) {
+        
+        console.log('Visited vertex: ' + value);
+        count++;
+        svg.select("#" + value)
+        .transition()
+        .duration(700)
+        .delay(count* 700)
+        .style("fill", "red");
+      }
+      graph.bfs("acald_c", printNode);
     });
 
 
+d3.select(".test_button").on("click", function () {
+  graph = new Graph();
+  var myVertices = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
+  for (var i = 0; i < myVertices.length; i++) {
+    graph.addVertex(myVertices[i]);
+  }
+  graph.addEdge('A', 'B');
+  graph.addEdge('A', 'C');
+  graph.addEdge('A', 'D');
+  graph.addEdge('C', 'D');
+  graph.addEdge('C', 'G');
+  graph.addEdge('D', 'G');
+  graph.addEdge('D', 'H');
+  graph.addEdge('B', 'E');
+  graph.addEdge('B', 'F');
+  graph.addEdge('E', 'I');
+  console.log(graph.toString());
 
+  function printNode(value) {
+    console.log('Visited vertex: ' + value);
+  }
+  graph.dfs("B", printNode);
+
+});
 
 
     svg.selectAll(".metabolite")
@@ -982,6 +1009,33 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
 });
 
 
+class Queue {
+  constructor() {
+    var items = [];
+    this.enqueue = function (element) {
+      items.push(element);
+    };
+    this.dequeue = function () {
+      return items.shift();
+    };
+    this.front = function () {
+      return items[0];
+    };
+    this.isEmpty = function () {
+      return items.length == 0;
+    };
+    this.clear = function () {
+      items = [];
+    };
+    this.size = function () {
+      return items.length;
+    };
+    this.print = function () {
+      console.log(items.toString());
+    };
+  }
+}
+
 // Graph function
 class Graph {
   constructor() {
@@ -1022,12 +1076,17 @@ class Graph {
       return color;
     };
 
-    this.dfs = function(callback){
+    
+
+    this.dfs = function(s, callback){
       var color = initializeColor(); //前面的颜色数组
-      for (var i=0; i<vertices.length; i++){
-          if (color[vertices[i]] === 'white'){
-              dfsVisit(vertices[i], color, callback); //递归调用未被访问过的顶点
-          }
+      // for (var i=0; i<vertices.length; i++){
+      //     if (color[vertices[i]] === 'white'){
+      //         dfsVisit(vertices[i], color, callback); //递归调用未被访问过的顶点
+      //     }
+      // }
+      if (color[s] == "white") {
+        dfsVisit(s, color, callback);
       }
   };
   var dfsVisit = function(u, color, callback){
@@ -1044,6 +1103,28 @@ class Graph {
       }
       color[u] = 'black';
   };
+
+this.bfs = function(v, callback){
+    var color = initializeColor(),
+        queue = new Queue(); //创建一个队列
+    queue.enqueue(v); //入队列
+    while (!queue.isEmpty()){
+        var u = queue.dequeue(), //出队列
+            neighbors = adjList.get(u); //邻接表
+        color[u] = 'grey'; //发现了但还未完成对其的搜素
+        for (var i=0; i<neighbors.length; i++){
+            var w = neighbors[i]; //顶点名
+            if (color[w] === 'white'){
+                color[w] = 'grey'; //发现了它
+                queue.enqueue(w); //入队列循环
+            }
+        }
+        color[u] = 'black'; //已搜索过
+        if (callback) {
+            callback(u);
+        }
+    }
+};
 
   }
 }
