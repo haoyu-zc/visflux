@@ -923,6 +923,12 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
 
         // _debug: can't use id cause id will be identical
         //console.log(link.source.id, " -> ",link.target.id);
+
+        // Ignore cofacor nodes
+        if(link.target.cofactor) {
+          return;
+        }
+
         graph.addVertex(link.source.id);
         graph.addVertex(link.target.id);
         graph.addEdge(link.source.id, link.target.id);
