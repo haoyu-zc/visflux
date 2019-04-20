@@ -853,6 +853,28 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
       catch(err){ return 5; }
     }
 
+
+    // Node selection effect
+    svg.selectAll("circle").on("mouseover", function(){
+        d3.select(this)
+        .style("fill", "red");
+    })
+
+
+
+    svg.selectAll("circle").on("mouseout", function(){
+      d3.select(this)
+      .style("fill", function(d) { 
+        if (d.type != 'rxn') {
+          if ('color' in d.notes.map_info) {
+            return d.notes.map_info.color;
+          } else {
+            return '#1f77b4';
+          }
+        } else return "";});
+  })
+
+
     // hari: !important
     svg.selectAll(".link")
       .attr("stroke-width", function (d) {return get_flux_width(d.rxn);})

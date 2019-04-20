@@ -14,3 +14,4 @@ __pycache__
 # Python egg metadata, regenerated from source files by setuptools.
 /*.egg-info
 test/test_asuc.html
+test/test_asuc.html
