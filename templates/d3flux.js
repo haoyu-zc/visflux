@@ -585,7 +585,7 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
       .append("g")
       .on('dblclick', releasenode)
       .call(node_drag)
-      // Show node info on click
+      // hari: how node info on click
       .on("click", function (d) {
         d3.select("#info")
         .property("value", d.id);
@@ -854,13 +854,41 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
     }
 
 
+    // Node hover tooltip
+
+
+
     // Node selection effect
     svg.selectAll("circle").on("mouseover", function(){
         d3.select(this)
         .style("fill", "red");
     })
 
+  //   var focus_node = "null";
+  //   svg.selectAll("circle").on("click", function(){
+  //     if (focus_node == "null") {
+  //       focus_node = d3.select(this);
+  //       console.log(focus_node);
+  //       d3.select(focus_node)
+  //       .style("fill", "red");
+  //     }
+  //     else {
+  //       d3.select(focus_node)
+  //       .style("fill", function(d) { 
+  //         if (d.type != 'rxn') {
+  //           if ('color' in d.notes.map_info) {
+  //             return d.notes.map_info.color;
+  //           } else {
+  //             return '#1f77b4';
+  //           }
+  //         } else return "";});
 
+  //         // focus_node = d3.select(this);
+  //         // d3.select(focus_node)
+  //         // .style("fill", "red");
+  //     }
+
+  // })
 
     svg.selectAll("circle").on("mouseout", function(){
       d3.select(this)
