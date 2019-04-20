@@ -872,15 +872,19 @@ var tip = d3.tip()
   .attr('class', 'd3-tip')
   .offset([-10, 0])
   .html(function (d) {
+    if (d.type == "metabolite") {
+      return "<strong>Metabolite:</strong> <span style='color:red'>" + d.id + "</span>" + "<br/><br/>" +
+      "<strong>Name:</strong> <span style='color:red'>" + d.name + "</span>" + "<br/><br/>" +
+      "<strong>Formula:</strong> <span style='color:red'>" + d.formula + "</span>" + "<br/><br/>" +
+      "<strong>Charge:</strong> <span style='color:red'>" + d.charge + "</span>";
+    } else
     if (d.type == "rxn") {
       return "<strong>Reaction:</strong> <span style='color:red'>" + d.id + "</span>";
-    }
+    } else
     if (d.type == "cofactor") {
       return "<strong>Cofactor:</strong> <span style='color:red'>" + d.id + "</span>";
     }
-    if (d.type == "metabolite") {
-      return "<strong>Metabolite:</strong> <span style='color:red'>" + d.id + "</span>";
-    }
+
     return "<strong>Node:</strong> <span style='color:red'>" + d.id + "</span>";
   })
 

@@ -56,7 +56,7 @@ marker.inactive, .node.inactive, text.inactive {
     width: 100%;
     line-height: 1;
     color: rgba(0, 0, 0, 0.8);
-    content: \"\25BC\";
+    /*bug content: '▼'; */
     position: absolute;
     text-align: center;
   }
