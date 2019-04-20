@@ -879,10 +879,15 @@ var tip = d3.tip()
       "<strong>Charge:</strong> <span style='color:red'>" + d.charge + "</span>";
     } else
     if (d.type == "rxn") {
-      return "<strong>Reaction:</strong> <span style='color:red'>" + d.id + "</span>";
+      return "<strong>Reaction:</strong> <span style='color:red'>" + d.id + "</span>" + "<br/><br/>" +
+      "<strong>Enzymes:</strong> <span style='color:red'>" + d.notes.Enzymes + "</span>" + "<br/><br/>" +
+      "<strong>KEGG:</strong> <span style='color:red'>" + d.notes.KEGG + "</span>" + "<br/><br/>" +
+      "<strong>MetaCyc:</strong> <span style='color:red'>" + d.notes.MetaCyc + "</span>" + "<br/><br/>" +
+      "<strong>original_bigg_id:</strong> <span style='color:red'>" + d.notes.original_bigg_id + "</span>";
     } else
     if (d.type == "cofactor") {
-      return "<strong>Cofactor:</strong> <span style='color:red'>" + d.id + "</span>";
+      return "<strong>Cofactor:</strong> <span style='color:red'>" + d.id + "</span>" + "<br/><br/>" +
+      "<strong>Name:</strong> <span style='color:red'>" + d.name + "</span>";
     }
 
     return "<strong>Node:</strong> <span style='color:red'>" + d.id + "</span>";
