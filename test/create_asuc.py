@@ -59,6 +59,7 @@ pfba(model)
 html = flux_map(model, figsize=(748,700), inactive_alpha=0.5)
 with open('test_asuc.html', 'w') as f:
     f.write('<!DOCTYPE html> <html> <head> \
+        <meta charset="utf-8"> \
         <title>Test d3flux page</title> \
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js" integrity="sha256-Vjusm6Kh2U7/tb6jBh+MOfxnaf2TWsTph34bMKhC1Qc=" crossorigin="anonymous"></script> \
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script> \

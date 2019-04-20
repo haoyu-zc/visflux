@@ -6,6 +6,7 @@ require.config({
     cola: "http://marvl.infotech.monash.edu/webcola/cola.v3.min",
     math: "https://cdnjs.cloudflare.com/ajax/libs/mathjs/2.4.0/math.min",
     FileSaver: "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min",
+
   },
   shim: {
     'cola': {
@@ -14,7 +15,7 @@ require.config({
   }
 });
 
-require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSaver) {
+require(["cola", "d3", "math", "FileSaver", ], function (cola, d3, math, FileSaver) {
 
   function main(model) {
     // Render a metabolic network representation of a cobra.Model object.
@@ -855,6 +856,14 @@ require(["cola", "d3", "math", "FileSaver",], function (cola, d3, math, FileSave
 
 
     // Node hover tooltip
+  // var tip = d3.tip()
+  //   .attr('class', 'd3-tip')
+  //   .offset([-10, 0])
+  //   .html(function (d) {
+  //   return "<strong>Frequency:</strong> <span style='color:red'>" + d.id + "</span>";
+  //   })
+
+  //   svg.call(tip);
 
 
 
@@ -1288,6 +1297,9 @@ class Dictionary {
     };
   }
 }
+
+
+
 
 
 
