@@ -75,7 +75,7 @@ require(["cola", "d3", "math", "FileSaver", ], function (cola, d3, math, FileSav
     }
 
     // Append the CSS styles
-    svg.append("style").text("{{ css }}");
+    svg.append("style").text('{{ css }}');
 
     // Code for the figure manipulation buttons.
     d3.select("#{{ figure_id }}_options .reactionbutton").on("click", function() {
@@ -870,7 +870,8 @@ d3.tip = function() {
 // Node hover tooltip
 var tip = d3.tip()
   .attr('class', 'd3-tip')
-  .offset([-10, 0])
+  .offset([10, 0])
+  .direction('s')
   .html(function (d) {
     if (d.type == "metabolite") {
       return "<strong>Metabolite:</strong> <span style='color:red'>" + d.id + "</span>" + "<br/><br/>" +
