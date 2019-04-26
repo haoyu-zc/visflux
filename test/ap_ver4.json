@@ -1,0 +1,1458 @@
+{
+    "metabolites": [
+        {
+            "id": "atp_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "agluc_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "adp_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "ag6p_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "bgluc_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "bg6p_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "bf6p_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "bfbp_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "h2o_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "h3po4_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "dhap_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "g3p_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "g1p_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "cellb_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "gluc_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "glucoside_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "roh_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "cellodex_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "sucrose_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "fruc_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "bdg_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "g6p_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "f6p_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "utp_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "ppi_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "udpg_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "cellulose_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "udp_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "ump_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "starch_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "amylose_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "aat6p_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "dextrin_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "maltose_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "maltodex_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "trehalose_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "e4p_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "xyl5p_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "s7p_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "g3p",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "r5p_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "ribul5p_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "dr5p_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "adh_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "dor_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "dr1p_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "amp_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "prpp_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "ribose_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "r1p_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "6pdg_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "nadp_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "co2_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "nadph_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "h_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "6-pgdl_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "gla_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "m6p_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "agal_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "gal6p_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "udpgal_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "man_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "m1p_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "gtp_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "gdpman_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "bfruc_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "glc_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "glc6p_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "glu_c",
+            "name": "",
+            "compartment": ""
+        },
+        {
+            "id": "glu__l_c",
+            "name": "",
+            "compartment": ""
+        }
+    ],
+    "reactions": [
+        {
+            "id": "R01786",
+            "name": "",
+            "metabolites": {
+                "adp_c": 1,
+                "ag6p_c": 1,
+                "agluc_c": -1,
+                "atp_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "objective_coefficient": 1.0,
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "atp_c": {},
+                        "adp_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R01602",
+            "name": "",
+            "metabolites": {
+                "agluc_c": -1,
+                "bgluc_c": 1
+            },
+            "lower_bound": -1000,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R01600",
+            "name": "",
+            "metabolites": {
+                "adp_c": 1,
+                "atp_c": -1,
+                "bg6p_c": 1,
+                "bgluc_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "atp_c": {},
+                        "adp_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R03321",
+            "name": "",
+            "metabolites": {
+                "bf6p_c": 1,
+                "bg6p_c": -1
+            },
+            "lower_bound": -1000,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R02740",
+            "name": "",
+            "metabolites": {
+                "ag6p_c": -1,
+                "bf6p_c": 1
+            },
+            "lower_bound": -1000,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R02739",
+            "name": "",
+            "metabolites": {
+                "ag6p_c": -1,
+                "bg6p_c": 1
+            },
+            "lower_bound": -1000,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R04780",
+            "name": "",
+            "metabolites": {
+                "bf6p_c": 1,
+                "bfbp_c": -1,
+                "h2o_c": -1,
+                "h3po4_c": 1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "h2o_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R01070",
+            "name": "",
+            "metabolites": {
+                "bfbp_c": -1,
+                "dhap_c": 1,
+                "g3p_c": 1
+            },
+            "lower_bound": -1000,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R01015",
+            "name": "",
+            "metabolites": {
+                "dhap_c": 1,
+                "g3p_c": -1
+            },
+            "lower_bound": -1000,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R00959",
+            "name": "",
+            "metabolites": {
+                "ag6p_c": 1,
+                "g1p_c": -1
+            },
+            "lower_bound": -1000,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R00306",
+            "name": "",
+            "metabolites": {
+                "cellb_c": -1,
+                "gluc_c": 2.0,
+                "h2o_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "h2o_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R03527",
+            "name": "",
+            "metabolites": {
+                "gluc_c": 1,
+                "glucoside_c": -1,
+                "h2o_c": -1,
+                "roh_c": 1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "h2o_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R02887",
+            "name": "",
+            "metabolites": {
+                "cellb_c": 1,
+                "cellodex_c": -1,
+                "gluc_c": 1,
+                "h2o_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "h2o_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R00801",
+            "name": "",
+            "metabolites": {
+                "fruc_c": 1,
+                "gluc_c": 1,
+                "h2o_c": -1,
+                "sucrose_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "h2o_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R00308",
+            "name": "",
+            "metabolites": {
+                "gluc_c": 1,
+                "h2o_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "h2o_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R08639",
+            "name": "",
+            "metabolites": {
+                "g1p_c": -1,
+                "g6p_c": 1
+            },
+            "lower_bound": -1000,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R00771",
+            "name": "",
+            "metabolites": {
+                "f6p_c": 1,
+                "g6p_c": -1
+            },
+            "lower_bound": -1000,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R00760",
+            "name": "",
+            "metabolites": {
+                "adp_c": 1,
+                "atp_c": -1,
+                "f6p_c": 1,
+                "fruc_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "atp_c": {},
+                        "adp_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R00299",
+            "name": "",
+            "metabolites": {
+                "adp_c": 1,
+                "atp_c": -1,
+                "g6p_c": 1,
+                "gluc_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "atp_c": {},
+                        "adp_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R00289",
+            "name": "",
+            "metabolites": {
+                "g1p_c": -1,
+                "ppi_c": 1,
+                "udpg_c": 1,
+                "utp_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R11308",
+            "name": "",
+            "metabolites": {
+                "cellb_c": 1,
+                "cellodex_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R11307",
+            "name": "",
+            "metabolites": {
+                "cellodex_c": 1,
+                "h2o_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "h2o_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R03118",
+            "name": "",
+            "metabolites": {
+                "udp_c": 1,
+                "udpg_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R00287",
+            "name": "",
+            "metabolites": {
+                "g1p_c": 1,
+                "h2o_c": -1,
+                "udpg_c": -1,
+                "ump_c": 1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "h2o_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R02111",
+            "name": "",
+            "metabolites": {
+                "amylose_c": 1,
+                "g1p_c": 1,
+                "h3po4_c": -1,
+                "starch_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R00292",
+            "name": "",
+            "metabolites": {
+                "udp_c": 1,
+                "udpg_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R02737",
+            "name": "",
+            "metabolites": {
+                "aat6p_c": 1,
+                "ag6p_c": -1,
+                "udp_c": 1,
+                "udpg_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R02110",
+            "name": "",
+            "metabolites": {
+                "amylose_c": -1,
+                "starch_c": 1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R02112",
+            "name": "",
+            "metabolites": {
+                "dextrin_c": 1,
+                "maltose_c": 1,
+                "starch_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R11262",
+            "name": "",
+            "metabolites": {
+                "h2o_c": -1,
+                "maltodex_c": -1,
+                "maltose_c": 1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "h2o_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R01790",
+            "name": "",
+            "metabolites": {
+                "gluc_c": 1,
+                "h2o_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "h2o_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R01791",
+            "name": "",
+            "metabolites": {
+                "gluc_c": 1,
+                "h2o_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "h2o_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R00028",
+            "name": "",
+            "metabolites": {
+                "gluc_c": 2.0,
+                "h2o_c": -1,
+                "maltose_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "h2o_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R05196",
+            "name": "",
+            "metabolites": {
+                "amylose_c": -1,
+                "gluc_c": -1,
+                "maltose_c": 1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R02778",
+            "name": "",
+            "metabolites": {
+                "aat6p_c": -1,
+                "h2o_c": -1,
+                "h3po4_c": 1,
+                "trehalose_c": 1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "h2o_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R00010",
+            "name": "",
+            "metabolites": {
+                "gluc_c": 2.0,
+                "h2o_c": -1,
+                "trehalose_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "h2o_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R01830",
+            "name": "",
+            "metabolites": {
+                "bf6p_c": -1,
+                "e4p_c": 1,
+                "g3p_c": -1,
+                "xyl5p_c": 1
+            },
+            "lower_bound": -1000,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R01641",
+            "name": "",
+            "metabolites": {
+                "g3p": -1,
+                "r5p_c": 1,
+                "s7p_c": -1,
+                "xyl5p_c": 1
+            },
+            "lower_bound": -1000,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R01827",
+            "name": "",
+            "metabolites": {
+                "bf6p_c": 1,
+                "e4p_c": 1,
+                "g3p": -1,
+                "s7p_c": -1
+            },
+            "lower_bound": -1000,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R01529",
+            "name": "",
+            "metabolites": {
+                "ribul5p_c": -1,
+                "xyl5p_c": 1
+            },
+            "lower_bound": -1000,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R01066",
+            "name": "",
+            "metabolites": {
+                "adh_c": 1,
+                "dr5p_c": -1,
+                "g3p_c": 1
+            },
+            "lower_bound": -1000,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R02750",
+            "name": "",
+            "metabolites": {
+                "adp_c": -1,
+                "atp_c": 1,
+                "dor_c": 1,
+                "dr5p_c": -1
+            },
+            "lower_bound": -1000,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "adp_c": {},
+                        "atp_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R02749",
+            "name": "",
+            "metabolites": {
+                "dr1p_c": -1,
+                "dr5p_c": 1
+            },
+            "lower_bound": -1000,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R01056",
+            "name": "",
+            "metabolites": {
+                "r5p_c": -1,
+                "ribul5p_c": 1
+            },
+            "lower_bound": -1000,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R01049",
+            "name": "",
+            "metabolites": {
+                "amp_c": 1,
+                "atp_c": -1,
+                "prpp_c": 1,
+                "r5p_c": -1
+            },
+            "lower_bound": -1000,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "atp_c": {},
+                        "amp_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R01051",
+            "name": "",
+            "metabolites": {
+                "adp_c": 1,
+                "atp_c": -1,
+                "r5p_c": 1,
+                "ribose_c": -1
+            },
+            "lower_bound": -1000,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "atp_c": {},
+                        "adp_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R01057",
+            "name": "",
+            "metabolites": {
+                "r1p_c": -1,
+                "r5p_c": 1
+            },
+            "lower_bound": -1000,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R01528",
+            "name": "",
+            "metabolites": {
+                "6pdg_c": -1,
+                "co2_c": 1,
+                "h_c": 1,
+                "nadp_c": -1,
+                "nadph_c": 1,
+                "ribul5p_c": 1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "nadp_c": {},
+                        "co2_c": {},
+                        "h_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R02035",
+            "name": "",
+            "metabolites": {
+                "6-pgdl_c": -1,
+                "6pdg_c": 1,
+                "h2o_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "h2o_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R01737",
+            "name": "",
+            "metabolites": {
+                "6pdg_c": 1,
+                "adp_c": 1,
+                "atp_c": -1,
+                "gla_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "atp_c": {},
+                        "adp_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R01819",
+            "name": "",
+            "metabolites": {
+                "bf6p_c": 1,
+                "m6p_c": -1
+            },
+            "lower_bound": -1000,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R01092",
+            "name": "",
+            "metabolites": {
+                "adp_c": 1,
+                "agal_c": -1,
+                "atp_c": -1,
+                "gal6p_c": 1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "atp_c": {},
+                        "adp_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R00955",
+            "name": "",
+            "metabolites": {
+                "g1p_c": 1,
+                "gal6p_c": -1,
+                "udpg_c": -1,
+                "udpgal_c": 1
+            },
+            "lower_bound": -1000,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R00291",
+            "name": "",
+            "metabolites": {
+                "udpg_c": -1,
+                "udpgal_c": 1
+            },
+            "lower_bound": -1000,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R01326",
+            "name": "",
+            "metabolites": {
+                "adp_c": 1,
+                "atp_c": -1,
+                "m6p_c": 1,
+                "man_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "atp_c": {},
+                        "adp_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R01818",
+            "name": "",
+            "metabolites": {
+                "m1p_c": 1,
+                "m6p_c": -1
+            },
+            "lower_bound": -1000,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R00885",
+            "name": "",
+            "metabolites": {
+                "gdpman_c": 1,
+                "gtp_c": -1,
+                "m1p_c": -1,
+                "ppi_c": 1
+            },
+            "lower_bound": -1000,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        },
+        {
+            "id": "R03920",
+            "name": "",
+            "metabolites": {
+                "adp_c": 1,
+                "atp_c": -1,
+                "bf6p_c": 1,
+                "bfruc_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "atp_c": {},
+                        "adp_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R01961",
+            "name": "",
+            "metabolites": {
+                "adp_c": 1,
+                "atp_c": -1,
+                "glc6p_c": 1,
+                "glc_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {
+                        "atp_c": {},
+                        "adp_c": {}
+                    }
+                }
+            }
+        },
+        {
+            "id": "R00768",
+            "name": "",
+            "metabolites": {
+                "bf6p_c": -1,
+                "glc6p_c": 1,
+                "glu__l_c": 1,
+                "glu_c": -1
+            },
+            "lower_bound": 0,
+            "upper_bound": 1000,
+            "gene_reaction_rule": "",
+            "notes": {
+                "map_info": {
+                    "cofactors": {}
+                }
+            }
+        }
+    ],
+    "genes": [],
+    "id": "AP_v2",
+    "compartments": {},
+    "version": "1"
+}
