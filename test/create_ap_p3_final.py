@@ -20,7 +20,7 @@ text.cofactor {
 
 css = Template(custom_css).render(items=['succ_c', 'ac_c', 'etoh_c', 'for_c', 'co2_c', 'lac__D_c'])
 
-model = cobra.io.load_json_model('_all_final.json')
+model = cobra.io.load_json_model('_gly_final.json')
 
 # model.add_reaction(ecoli.reactions.ALDD2x)
 # d3f.update_cofactors(model, ['nadh_c'])
@@ -57,7 +57,7 @@ from cobra.flux_analysis import pfba
 pfba(model)
 
 html = flux_map(model, figsize=(748,700), inactive_alpha=0.5, flux_dict={rxn.id: None for rxn in model.reactions})
-with open('_test_ap_all_final.html', 'w') as f:
+with open('_test_ap_gly_final.html', 'w') as f:
     f.write('<!DOCTYPE html> <html> <head> \
         <title>Test d3flux page</title> \
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js" integrity="sha256-Vjusm6Kh2U7/tb6jBh+MOfxnaf2TWsTph34bMKhC1Qc=" crossorigin="anonymous"></script> \
