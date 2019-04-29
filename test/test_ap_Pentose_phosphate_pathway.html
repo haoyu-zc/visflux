@@ -1,4 +1,78 @@
-var {{ figure_id }}model = {{ modeljson }};
+<!DOCTYPE html> <html> <head>         <title>Test d3flux page</title>         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js" integrity="sha256-Vjusm6Kh2U7/tb6jBh+MOfxnaf2TWsTph34bMKhC1Qc=" crossorigin="anonymous"></script>         <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">         </head> <body><div class="container">
+  <div class="row row-offcanvas row-offcanvas-right">
+
+      <div class="navbar navbar-static-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+              <i class="fa fa-comments-o"></i>
+              VisMap
+            </a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="/">Home</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+              <li><a href="/">Document</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/login">Login</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    <div class="col-xs-12 col-sm-9">
+      <div id="d3flux001">
+        
+      </div>
+    </div>
+
+    <div id="d3flux001_options" class="col-xs-6 col-sm-3 sidebar-offcanvas">
+        <div class="btn-group-vertical" role="group" aria-label="btn-group-vertical">
+            <button type="button" class="download btn btn-primary ">Save JSON</button>
+            <button type="button" class="reactionbutton btn btn-success ">Show Reaction Nodes </button>
+            <button type="button" class="svgbutton btn btn-info ">Download SVG</button>
+            <button type="button" class="path_button btn btn-warning ">Select Path</button>
+            <button type="button" class="marker_button btn btn-warning ">Select Marker</button>
+            <button type="button" class="reset_button btn btn-warning ">Reset</button>
+            <button type="button" class="test_button btn btn-test ">Alg Test</button>
+            <button type="button" class="test_button btn btn-test ">Search</button>
+            <form>
+                <input id="info" type="text" value="">
+                <button type="button" class="animate_button btn btn-warning ">Downstream Nodes</button>
+              </form>
+        </div>
+      </div><!--/.sidebar-offcanvas-->
+
+    <!-- <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+        <div class="list-group">
+          <li class="list-group-item active">External Links</li>
+          <a href="http://bigg.ucsd.edu/" target="_blank" class="list-group-item">BiGG</a>
+          <a href="https://opencobra.github.io/" target="_blank" class="list-group-item">Open Cobra</a>
+          <a href="https://d3js.org/" target="_blank" class="list-group-item">D3.js</a>
+          <a href="#" class="list-group-item">...</a>
+          <a href="#" class="list-group-item">...</a>
+          <a href="#" class="list-group-item">...</a>
+          <a href="#" class="list-group-item">...</a>
+          <a href="#" class="list-group-item">...</a>
+          <a href="https://getbootstrap.com/" target="_blank" class="list-group-item">Bootstrap</a>
+        </div>
+      </div> -->
+      <!--.sidebar-offcanvas-->
+
+  </div>
+</div>
+
+<script type="text/Javascript">
+var d3flux001model = {"metabolites": [{"id": "bf6p_c", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "BF6P"}}}, {"id": "g3p_c", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "G3P"}}}, {"id": "e4p_c", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "E4P"}}}, {"id": "xyl5p_c", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "XYL5P"}}}, {"id": "s7p_c", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "S7P"}}}, {"id": "g3p", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "G"}}}, {"id": "r5p_c", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "R5P"}}}, {"id": "ribul5p_c", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "RIBUL5P"}}}, {"id": "dr5p_c", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "DR5P"}}}, {"id": "adh_c", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "ADH"}}}, {"id": "adp_c", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "ADP"}}}, {"id": "dor_c", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "DOR"}}}, {"id": "atp_c", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "ATP"}}}, {"id": "dr1p_c", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "DR1P"}}}, {"id": "amp_c", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "AMP"}}}, {"id": "prpp_c", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "PRPP"}}}, {"id": "ribose_c", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "RIBOSE"}}}, {"id": "r1p_c", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "R1P"}}}, {"id": "6pdg_c", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "6PDG"}}}, {"id": "nadp_c", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "NADP"}}}, {"id": "co2_c", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "CO2"}}}, {"id": "nadph_c", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "NADPH"}}}, {"id": "h_c", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "H"}}}, {"id": "6pgdl_c", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "6PGDL"}}}, {"id": "h2o_c", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "H2O"}}}, {"id": "gla_c", "name": "", "compartment": "", "notes": {"map_info": {"display_name": "GLA"}}}], "reactions": [{"id": "R01830", "name": "", "metabolites": {"bf6p_c": -1, "e4p_c": 1, "g3p_c": -1, "xyl5p_c": 1}, "lower_bound": -1000, "upper_bound": 1000, "gene_reaction_rule": "", "notes": {"map_info": {"cofactors": {}, "reversibility": true}}}, {"id": "R01641", "name": "", "metabolites": {"g3p": -1, "r5p_c": 1, "s7p_c": -1, "xyl5p_c": 1}, "lower_bound": -1000, "upper_bound": 1000, "gene_reaction_rule": "", "notes": {"map_info": {"cofactors": {}, "reversibility": true}}}, {"id": "R01827", "name": "", "metabolites": {"bf6p_c": 1, "e4p_c": 1, "g3p": -1, "s7p_c": -1}, "lower_bound": -1000, "upper_bound": 1000, "gene_reaction_rule": "", "notes": {"map_info": {"cofactors": {}, "reversibility": true}}}, {"id": "R01529", "name": "", "metabolites": {"ribul5p_c": -1, "xyl5p_c": 1}, "lower_bound": -1000, "upper_bound": 1000, "gene_reaction_rule": "", "notes": {"map_info": {"cofactors": {}, "reversibility": true}}}, {"id": "R01066", "name": "", "metabolites": {"adh_c": 1, "dr5p_c": -1, "g3p_c": 1}, "lower_bound": -1000, "upper_bound": 1000, "gene_reaction_rule": "", "notes": {"map_info": {"cofactors": {}, "reversibility": true}}}, {"id": "R02750", "name": "", "metabolites": {"adp_c": -1, "atp_c": 1, "dor_c": 1, "dr5p_c": -1}, "lower_bound": -1000, "upper_bound": 1000, "gene_reaction_rule": "", "notes": {"map_info": {"cofactors": {"adp_c": {}, "atp_c": {}}, "reversibility": true}}}, {"id": "R02749", "name": "", "metabolites": {"dr1p_c": -1, "dr5p_c": 1}, "lower_bound": -1000, "upper_bound": 1000, "gene_reaction_rule": "", "notes": {"map_info": {"cofactors": {}, "reversibility": true}}}, {"id": "R01056", "name": "", "metabolites": {"r5p_c": -1, "ribul5p_c": 1}, "lower_bound": -1000, "upper_bound": 1000, "gene_reaction_rule": "", "notes": {"map_info": {"cofactors": {}, "reversibility": true}}}, {"id": "R01049", "name": "", "metabolites": {"amp_c": 1, "atp_c": -1, "prpp_c": 1, "r5p_c": -1}, "lower_bound": -1000, "upper_bound": 1000, "gene_reaction_rule": "", "notes": {"map_info": {"cofactors": {"atp_c": {}, "amp_c": {}}, "reversibility": true}}}, {"id": "R01051", "name": "", "metabolites": {"adp_c": 1, "atp_c": -1, "r5p_c": 1, "ribose_c": -1}, "lower_bound": -1000, "upper_bound": 1000, "gene_reaction_rule": "", "notes": {"map_info": {"cofactors": {"atp_c": {}, "adp_c": {}}, "reversibility": true}}}, {"id": "R01057", "name": "", "metabolites": {"r1p_c": -1, "r5p_c": 1}, "lower_bound": -1000, "upper_bound": 1000, "gene_reaction_rule": "", "notes": {"map_info": {"cofactors": {}, "reversibility": true}}}, {"id": "R01528", "name": "", "metabolites": {"6pdg_c": -1, "co2_c": 1, "h_c": 1, "nadp_c": -1, "nadph_c": 1, "ribul5p_c": 1}, "lower_bound": 0, "upper_bound": 1000, "gene_reaction_rule": "", "notes": {"map_info": {"cofactors": {"nadp_c": {}, "co2_c": {}, "h_c": {}}, "reversibility": false}}}, {"id": "R02035", "name": "", "metabolites": {"6pdg_c": 1, "6pgdl_c": -1, "h2o_c": -1}, "lower_bound": 0, "upper_bound": 1000, "gene_reaction_rule": "", "notes": {"map_info": {"cofactors": {"h2o_c": {}}, "reversibility": false}}}, {"id": "R01737", "name": "", "metabolites": {"6pdg_c": 1, "adp_c": 1, "atp_c": -1, "gla_c": -1}, "lower_bound": 0, "upper_bound": 1000, "gene_reaction_rule": "", "notes": {"map_info": {"cofactors": {"atp_c": {}, "adp_c": {}}, "reversibility": false}}}, {"id": "ribul5p_c", "name": "", "metabolites": {"6pgdl_c": 1}, "lower_bound": 0, "upper_bound": 1000, "gene_reaction_rule": "", "objective_coefficient": 1.0, "notes": {"map_info": {"reversibility": false, "hidden": true}}}, {"id": "6pgdl_c", "name": "", "metabolites": {}, "lower_bound": 0.0, "upper_bound": 1000.0, "gene_reaction_rule": "", "notes": {"map_info": {"reversibility": false, "hidden": true}}}], "genes": [], "id": "AP_v2", "compartments": {"": ""}, "notes": {"map_info": {}}};
 
 require.config({
   paths: {
@@ -24,8 +98,8 @@ require(["cola", "d3", "math", "FileSaver", ], function (cola, d3, math, FileSav
     // generated by cobra.display.flux_analysis.create_model_json
 
     // Height and width of the SVG figure, passed via jinja2
-    var width = {{ figwidth }},
-    height = {{ figheight }};
+    var width = 748,
+    height = 700;
 
     // var color = d3.scale.category10();
 
@@ -53,9 +127,7 @@ require(["cola", "d3", "math", "FileSaver", ], function (cola, d3, math, FileSav
     // this?
     var force = cola.d3adaptor()
       .linkDistance(30)
-      {% if flowLayout %}
-      .flowLayout('y', 15)
-      {% endif %}
+      
       .size([width, height]);
     // var force = d3.layout.force()
     //   .linkDistance(30)
@@ -66,21 +138,21 @@ require(["cola", "d3", "math", "FileSaver", ], function (cola, d3, math, FileSav
 
     // Allow for a background SVG template if one has been provided, otherwise
     // initalize the svg canvas
-    if ({{ no_background }}) {
-      var svg = d3.select("#{{ figure_id }}").append("svg")
-        .attr("viewBox", "0 0 {{ figwidth }} {{ figheight }}")
-        .attr("style", "display:block;margin:auto;width:{{ svg_scale }}%");
+    if (true) {
+      var svg = d3.select("#d3flux001").append("svg")
+        .attr("viewBox", "0 0 748 700")
+        .attr("style", "display:block;margin:auto;width:100%");
     } else {
-      var svg = d3.select("#{{ figure_id }}").select("svg");
+      var svg = d3.select("#d3flux001").select("svg");
     }
 
     // Append the CSS styles
-    svg.append("style").text('{{ css }}');
+    svg.append("style").text('.node.rxn{fill:#ffa319}.node.rxn.hidden{fill:none;stroke:none;stroke-width:0}.link{fill:none;stroke-linecap:round}text.nodelabel{font-size:12pt;fill:#555;font-family:Arial}text.nodelabel.cofactor{font-size:9.600000000000001pt;fill:#789}text.nodelabel.rxn{fill:#a9a9a9;font-size:9.600000000000001pt;font-style:italic}marker.inactive,.node.inactive,text.inactive{fill-opacity:.5}.link.inactive{stroke-opacity:.5}.d3-tip{line-height:1;font-weight:bold;padding:12px;background:rgba(0,0,0,0.8);color:#fff;border-radius:2px}.d3-tip:after{box-sizing:border-box;display:inline;font-size:10px;width:100%;line-height:1;color:rgba(0,0,0,0.8);position:absolute;text-align:center}.d3-tip.n:after{margin:-1px 0 0 0;top:100%;left:0}');
 
     // Code for the figure manipulation buttons.
-    d3.select("#{{ figure_id }}_options .reactionbutton").on("click", function() {
+    d3.select("#d3flux001_options .reactionbutton").on("click", function() {
       // Show/hide the reaction control node points.
-      // _note: ÊääÂéüÊù•ÁöÑHTMLÂØπË±°ÂÇ®Â≠òÊàêjqueryÂØπË±°
+      // _note: ∞—‘≠¿¥µƒHTML∂‘œÛ¥¢¥Ê≥…jquery∂‘œÛ
       var $this = $(this);
       $this.toggleClass('btn-danger');
       d3.selectAll(".node.rxn")
@@ -94,7 +166,7 @@ require(["cola", "d3", "math", "FileSaver", ], function (cola, d3, math, FileSav
       }
     });
 
-    d3.select("#{{ figure_id }}_options .svgbutton").on("click", function() { 
+    d3.select("#d3flux001_options .svgbutton").on("click", function() { 
       // Download the svg using SVG Crowbar. This is still very buggy.
 
       var e = document.createElement('script'); 
@@ -522,7 +594,7 @@ d3.tip = function() {
           if (metabolite.notes.map_info.hidden) {
             return;
           } else {
-            if ({{ hide_unused }} && (Math.abs(metabolite.notes.map_info.flux) < 1E-6)) {
+            if (false && (Math.abs(metabolite.notes.map_info.flux) < 1E-6)) {
               return;
             }
             mfluxes.push(Math.abs(metabolite.notes.map_info.flux));
@@ -550,7 +622,7 @@ d3.tip = function() {
               return;
             }
           }
-          if ({{ hide_unused_cofactors }} &&
+          if (false &&
               (Math.abs(reaction.notes.map_info.flux) < 1E-6)) {
             return;
           } 
@@ -622,7 +694,7 @@ d3.tip = function() {
           if (reaction.notes.map_info.hidden) {
             return;
           } else if ('flux' in reaction.notes.map_info) {
-            if ({{ hide_unused }} && (Math.abs(reaction.notes.map_info.flux) < 1E-6)) {
+            if (false && (Math.abs(reaction.notes.map_info.flux) < 1E-6)) {
               return;
             }
             fluxes.push(Math.abs(reaction.notes.map_info.flux));
@@ -684,7 +756,7 @@ d3.tip = function() {
           // lines will overlap)
           mlinks.push({
             "source" : node_lookup[reactant],
-            // _note: ? i % p_length - 1 Ôºü
+            // _note: ? i % p_length - 1 £ø
             "target" : node_lookup[reaction.products[i % p_length]],
             "rxn" : rindex
           });
@@ -772,7 +844,7 @@ d3.tip = function() {
       .data(reactions)
       .enter()
       .append("marker")
-      .attr("id", function (d) { return "{{ figure_id }}" + d.id; })
+      .attr("id", function (d) { return "d3flux001" + d.id; })
       .attr("viewBox", "0 0 10 10")
       .attr("refX", 1)
       .attr("refY", 5)
@@ -797,7 +869,7 @@ d3.tip = function() {
       .data(reactions)
       .enter()
       .append("marker")
-      .attr("id", function (d) { return "{{ figure_id }}" + d.id + "_rev"; })
+      .attr("id", function (d) { return "d3flux001" + d.id + "_rev"; })
       .attr("viewBox", "0 0 10 10")
       .attr("refX", 9)
       .attr("refY", 5)
@@ -822,7 +894,7 @@ d3.tip = function() {
       .enter()
       .append("path")
       .attr("class", function (d) {
-        var labels = "link {{ figure_id }}" + d.rxn.id;
+        var labels = "link d3flux001" + d.rxn.id;
         if ('flux' in d.rxn.notes.map_info) {
           if (d.rxn.notes.map_info.flux == 0) {
             // _note: use labels to select the link.
@@ -835,13 +907,13 @@ d3.tip = function() {
         return d.id;
       })
       .attr("marker-end", function(d) {
-        return "url(#{{ figure_id }}" + d.rxn.id + ")"; 
+        return "url(#d3flux001" + d.rxn.id + ")"; 
       })
       .attr("marker-start", function(d) {
   // Only show the reversible arrow if the reaction isnt carrying flux in
   // a particular direction
         if (plot_reverse_arrowhead(d.rxn)) {
-    return "url(#{{ figure_id }}" + d.rxn.id + "_rev)";
+    return "url(#d3flux001" + d.rxn.id + "_rev)";
   }
       });
 
@@ -1128,11 +1200,11 @@ svg.call(tip);
         if (!isNaN(flux)) {
           return flux;
         } else{
-          return {{ default_flux_width }};
+          return 2.5;
         }
       }
       catch(err) {
-        return {{ default_flux_width }}; // Default linewidth
+        return 2.5; // Default linewidth
       }
     }
 
@@ -1238,21 +1310,21 @@ svg.call(tip);
       .attr("fill", get_flux_stroke);
 
     // hari: btn test
-    d3.select("#{{ figure_id }}_options .marker_button").on("click", function() {
+    d3.select("#d3flux001_options .marker_button").on("click", function() {
       svg.selectAll("marker")
       .select("path")
       .transition()
       .style("fill", "purple");
     });
 
-    d3.select("#{{ figure_id }}_options .path_button").on("click", function() {
+    d3.select("#d3flux001_options .path_button").on("click", function() {
       svg.selectAll(".link")
       // color is not effective
       .transition()
       .style("stroke", "#006633");
     });
 
-    d3.select("#{{ figure_id }}_options .reset_button").on("click", function() {
+    d3.select("#d3flux001_options .reset_button").on("click", function() {
       svg.selectAll(".link")
       // color is not effective
       .transition()
@@ -1276,7 +1348,7 @@ svg.call(tip);
 
     });
 
-    d3.select("#{{ figure_id }}_options .animate_button").on("click", function() {
+    d3.select("#d3flux001_options .animate_button").on("click", function() {
       //svg.selectAll(".metabolite")
       graph = new Graph();
       // add unhidden metabolites
@@ -1331,7 +1403,7 @@ svg.call(tip);
     });
 
 
-d3.select("#{{ figure_id }}_options .test_button").on("click", function () {
+d3.select("#d3flux001_options .test_button").on("click", function () {
   d3.select("#info")
   .property("value", "test");
   graph = new Graph();
@@ -1362,7 +1434,7 @@ d3.select("#{{ figure_id }}_options .test_button").on("click", function () {
     svg.selectAll(".metabolite")
       .attr("r", get_node_radius);
 
-    d3.select("#{{ figure_id }}_options .download")
+    d3.select("#d3flux001_options .download")
       .on("click", function () {
 
         // Add position data to model nodes
@@ -1399,7 +1471,7 @@ d3.select("#{{ figure_id }}_options .test_button").on("click", function () {
       });
   }
 
-  main({{ figure_id }}model);
+  main(d3flux001model);
 
 
   
@@ -1437,19 +1509,19 @@ class Queue {
 // Graph function
 class Graph {
   constructor() {
-    var vertices = []; //Â≠òÂÇ®Âõæ‰∏≠ÊâÄÊúâÁöÑÈ°∂ÁÇπÂêçÂ≠ó
-    var adjList = new Dictionary(); //Áî®Â≠óÂÖ∏Êù•Â≠òÂÇ®ÈÇªÊé•Ë°®
+    var vertices = []; //¥Ê¥¢Õº÷–À˘”–µƒ∂•µ„√˚◊÷
+    var adjList = new Dictionary(); //”√◊÷µ‰¿¥¥Ê¥¢¡⁄Ω”±Ì
     this.addVertex = function (v) {
       // Ignore existed vertex.
       if (vertices.indexOf(v) in vertices) {
         return;
       }
       vertices.push(v);
-      adjList.set(v, []); //È°∂ÁÇπ‰∏∫ÈîÆÔºåÂ≠óÂÖ∏ÂÄº‰∏∫Á©∫Êï∞ÁªÑ
+      adjList.set(v, []); //∂•µ„Œ™º¸£¨◊÷µ‰÷µŒ™ø’ ˝◊È
     };
     this.addEdge = function (v, w) {
-      adjList.get(v).push(w); //Âü∫‰∫éÊúâÂêëÂõæ
-      //adjList.get(w).push(v); //Âü∫‰∫éÊó†ÂêëÂõæ
+      adjList.get(v).push(w); //ª˘”⁄”–œÚÕº
+      //adjList.get(w).push(v); //ª˘”⁄ŒﬁœÚÕº
     };
     this.hasVertex = function (v) {
       return v in vertices;
@@ -1477,10 +1549,10 @@ class Graph {
     
 
     this.dfs2 = function (s, callback) {
-      var color = initializeColor(); //ÂâçÈù¢ÁöÑÈ¢úËâ≤Êï∞ÁªÑ
+      var color = initializeColor(); //«∞√Êµƒ—’…´ ˝◊È
       // for (var i=0; i<vertices.length; i++){
       //     if (color[vertices[i]] === 'white'){
-      //         dfsVisit(vertices[i], color, callback); //ÈÄíÂΩíË∞ÉÁî®Êú™Ë¢´ËÆøÈóÆËøáÁöÑÈ°∂ÁÇπ
+      //         dfsVisit(vertices[i], color, callback); //µ›πÈµ˜”√Œ¥±ª∑√Œ π˝µƒ∂•µ„
       //     }
       // }
       if (color[s] == "white") {
@@ -1492,7 +1564,7 @@ class Graph {
       if (callback) {
         callback(u);
       }
-      var neighbors = adjList.get(u); //ÈÇªÊé•Ë°®
+      var neighbors = adjList.get(u); //¡⁄Ω”±Ì
 
 
       for (var i = 0; i < neighbors.length; i++) {
@@ -1506,7 +1578,7 @@ class Graph {
         }
 
         if (color[w] === 'white') {
-          dfsVisit2(w, color, callback); //Ê∑ªÂä†È°∂ÁÇπwÂÖ•Ê†à
+          dfsVisit2(w, color, callback); //ÃÌº”∂•µ„w»Î’ª
         }
 
       }
@@ -1515,10 +1587,10 @@ class Graph {
 
 
     this.dfs = function (s, callback) {
-      var color = initializeColor(); //ÂâçÈù¢ÁöÑÈ¢úËâ≤Êï∞ÁªÑ
+      var color = initializeColor(); //«∞√Êµƒ—’…´ ˝◊È
       // for (var i=0; i<vertices.length; i++){
       //     if (color[vertices[i]] === 'white'){
-      //         dfsVisit(vertices[i], color, callback); //ÈÄíÂΩíË∞ÉÁî®Êú™Ë¢´ËÆøÈóÆËøáÁöÑÈ°∂ÁÇπ
+      //         dfsVisit(vertices[i], color, callback); //µ›πÈµ˜”√Œ¥±ª∑√Œ π˝µƒ∂•µ„
       //     }
       // }
       if (color[s] == "white") {
@@ -1530,11 +1602,11 @@ class Graph {
       if (callback) {
         callback(u);
       }
-      var neighbors = adjList.get(u); //ÈÇªÊé•Ë°®
+      var neighbors = adjList.get(u); //¡⁄Ω”±Ì
       for (var i = 0; i < neighbors.length; i++) {
         var w = neighbors[i];
         if (color[w] === 'white') {
-          dfsVisit(w, color, callback); //Ê∑ªÂä†È°∂ÁÇπwÂÖ•Ê†à
+          dfsVisit(w, color, callback); //ÃÌº”∂•µ„w»Î’ª
         }
       }
       color[u] = 'black';
@@ -1542,20 +1614,20 @@ class Graph {
 
     this.bfs = function (v, callback) {
       var color = initializeColor(),
-        queue = new Queue(); //ÂàõÂª∫‰∏Ä‰∏™ÈòüÂàó
-      queue.enqueue(v); //ÂÖ•ÈòüÂàó
+        queue = new Queue(); //¥¥Ω®“ª∏ˆ∂”¡–
+      queue.enqueue(v); //»Î∂”¡–
       while (!queue.isEmpty()) {
-        var u = queue.dequeue(), //Âá∫ÈòüÂàó
-          neighbors = adjList.get(u); //ÈÇªÊé•Ë°®
-        color[u] = 'grey'; //ÂèëÁé∞‰∫Ü‰ΩÜËøòÊú™ÂÆåÊàêÂØπÂÖ∂ÁöÑÊêúÁ¥†
+        var u = queue.dequeue(), //≥ˆ∂”¡–
+          neighbors = adjList.get(u); //¡⁄Ω”±Ì
+        color[u] = 'grey'; //∑¢œ÷¡Àµ´ªπŒ¥ÕÍ≥…∂‘∆‰µƒÀ—Àÿ
         for (var i = 0; i < neighbors.length; i++) {
-          var w = neighbors[i]; //È°∂ÁÇπÂêç
+          var w = neighbors[i]; //∂•µ„√˚
           if (color[w] === 'white') {
-            color[w] = 'grey'; //ÂèëÁé∞‰∫ÜÂÆÉ
-            queue.enqueue(w); //ÂÖ•ÈòüÂàóÂæ™ÁéØ
+            color[w] = 'grey'; //∑¢œ÷¡ÀÀ¸
+            queue.enqueue(w); //»Î∂”¡–—≠ª∑
           }
         }
-        color[u] = 'black'; //Â∑≤ÊêúÁ¥¢Ëøá
+        color[u] = 'black'; //“—À—À˜π˝
         if (callback) {
           callback(u);
         }
@@ -4364,3 +4436,6 @@ Intersection.bezout = function(e1, e2) {
     );
 };
 
+</script>
+
+</body> </html>
