@@ -687,8 +687,8 @@ d3.tip = function() {
             // _note: ? i % p_length - 1 ？
             "target" : node_lookup[reaction.products[i % p_length]],
             "rxn" : rindex
-          });
         });
+      });
       } // else: products > reactants
       else {
         reaction.products.forEach(function (product, i) {
@@ -1305,6 +1305,11 @@ svg.call(tip);
         graph.addVertex(link.source.id);
         graph.addVertex(link.target.id);
         graph.addEdge(link.source.id, link.target.id);
+
+        if(link.rxn.notes["map_info"]["reversibility"] == true){
+          console.log("reverse!")
+          graph.addEdge(link.target.id, link.source.id);
+        }
         // svg.select("#" + link.id)
         // .transition()
         // .duration(700)
