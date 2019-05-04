@@ -56,7 +56,7 @@ model.metabolites.get_by_id('f6p_c').notes['map_info']['align'] = 'center left'
 from cobra.flux_analysis import pfba
 pfba(model)
 
-html = flux_map(model, figsize=(748,700), inactive_alpha=0.5)
+html = flux_map(model, figsize=(810,758), inactive_alpha=0.5)
 with open('test_asuc.html', 'w') as f:
     f.write('<!DOCTYPE html> <html> <head> \
         <title>Test d3flux page</title> \
