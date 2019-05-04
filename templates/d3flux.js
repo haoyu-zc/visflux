@@ -1237,13 +1237,13 @@ svg.call(tip);
       .select("path")
       .attr("fill", get_flux_stroke);
 
-    // hari: btn test
-    d3.select("#{{ figure_id }}_options .marker_button").on("click", function() {
-      svg.selectAll("marker")
-      .select("path")
-      .transition()
-      .style("fill", "purple");
-    });
+    //btn test
+    // d3.select("#{{ figure_id }}_options .marker_button").on("click", function() {
+    //   svg.selectAll("marker")
+    //   .select("path")
+    //   .transition()
+    //   .style("fill", "purple");
+    // });
 
     d3.select("#{{ figure_id }}_options .path_button").on("click", function() {
       svg.selectAll(".link")

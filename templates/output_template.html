@@ -1,63 +1,84 @@
 <div class="container">
   <div class="row row-offcanvas row-offcanvas-right">
 
-      <div class="navbar navbar-static-top" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">
-              <i class="fa fa-comments-o"></i>
-              VisMap
-            </a>
-          </div>
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li><a href="/">Home</a></li>
-            </ul>
-            <ul class="nav navbar-nav">
-              <li><a href="/">Document</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="/login">Login</a></li>
-            </ul>
-          </div>
+    <div class="navbar navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">
+            <i class="fa fa-comments-o"></i>
+            VisMap
+          </a>
         </div>
-      </div>
-
-    <div class="row">
-    <!-- <div class="col-xs-12 col-sm-9"> -->
-    <div class="col-md-10" >
-
-      <div id="{{ figure_id }}">
-        {{ background_svg }}
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li><a href="/">Document</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/login">Login</a></li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <!-- <div id="{{ figure_id }}_options" class="col-xs-6 col-sm-3 sidebar-offcanvas"> -->
-    <div id="{{ figure_id }}_options" class="col-md-2">
+    <div class="row">
+      <!-- <div class="col-xs-12 col-sm-9"> -->
+      <div class="col-md-10">
+
+        <div id="{{ figure_id }}">
+          {{ background_svg }}
+        </div>
+      </div>
+
+      <!-- <div id="{{ figure_id }}_options" class="col-xs-6 col-sm-3 sidebar-offcanvas"> -->
+      <div id="{{ figure_id }}_options" class="col-md-2">
 
         <div class="btn-group-vertical" role="group" aria-label="btn-group-vertical">
-            <button type="button" class="download btn btn-primary ">Save JSON</button>
-            <button type="button" class="reactionbutton btn btn-success ">Show Reaction Nodes </button>
-            <button type="button" class="svgbutton btn btn-info ">Download SVG</button>
-            <button type="button" class="path_button btn btn-warning ">Select Path</button>
-            <button type="button" class="marker_button btn btn-warning ">Select Marker</button>
-            <button type="button" class="reset_button btn btn-warning ">Reset</button>
-            <button type="button" class="test_button btn btn-test ">Alg Test</button>
-            <button type="button" class="test_button btn btn-test ">Search</button>
-            <form>
-                <input id="info" type="text" value=""/>
-                <button type="button" class="animate_button btn btn-warning ">Downstream Nodes</button>
-                <p><input type="checkbox" name="vehicle" value="" />Reversibility</p>
-            </form>
+          <h4>Output</h4>
+          <button type="button" class="download btn btn-primary ">Save JSON</button>
+          <button type="button" class="svgbutton btn btn-info ">Download SVG</button>
+
+          <h4>Traverse</h4>
+          <input type="text" class="form-control" id="info" placeholder="Node info" type="text" value="">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="">
+              Reversibility
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="">
+              Disable Animation
+            </label>
+          </div>
+          <button type="button" class="animate_button btn btn-warning ">Downstream Nodes</button>
+
+          <h4>Search</h4>
+          <input type="text" class="form-control" id="search" placeholder="Name or id" type="text" value="">
+          <button type="button" class="test_button btn btn-test ">Search Node</button>
+
+          <h4>Custom</h4>
+          <button type="button" class="reactionbutton btn btn-success ">Show Reaction Nodes </button>
+          <!-- feat:(点击后切换路径及箭头颜色，按钮颜色同时变化成相同颜色) -->
+          <button type="button" class="path_button btn btn-warning ">Path Color</button>
+          <!-- <button type="button" class="marker_button btn btn-warning ">Select Marker</button> -->
+          <button type="button" class="reset_button btn btn-warning ">Reset</button>
+          <!-- <button type="button" class="test_button btn btn-test ">Alg Test</button> -->
+
+
         </div>
-      </div><!--/.sidebar-offcanvas-->
-      </div> <!-- row -->
+      </div>
+      <!--/.sidebar-offcanvas-->
+    </div> <!-- row -->
 
     <!-- <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
         <div class="list-group">
@@ -73,7 +94,7 @@
           <a href="https://getbootstrap.com/" target="_blank" class="list-group-item">Bootstrap</a>
         </div>
       </div> -->
-      <!--.sidebar-offcanvas-->
+    <!--.sidebar-offcanvas-->
 
   </div>
 </div>
