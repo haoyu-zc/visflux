@@ -137,17 +137,14 @@ require(["cola", "d3", "math", "FileSaver", ], function (cola, d3, math, FileSav
 
   function toggleZoom() {
     zoomEnabled = !zoomEnabled;
-    console.log("checkbox clicked!");
     if (zoomEnabled) {
       svg.call(zoom);
     } else {
       svg.on('.zoom', null);
     }
-    zoomToggle.node().innerText = 'Zoom is ' + (zoomEnabled ? 'enabled' : 'disabled');
   };
 
-
-
+                        
   d3.selectAll('.zoom_button').on('click', zoomClick);
 
   // svg.call(zoom);
@@ -291,7 +288,7 @@ require(["cola", "d3", "math", "FileSaver", ], function (cola, d3, math, FileSav
     }
 
 
-    // d3.tip
+// d3.tip
 // Copyright (c) 2013 Justin Palmer
 //
 // Tooltips for d3.js SVG visualizations
@@ -970,7 +967,27 @@ var tip = d3.tip()
     return "<strong>Node:</strong> <span style='color:red'>" + d.id + "</span>";
   })
 
-svg.call(tip);
+  // Enable or disable tooltip
+  var tipEnalbed;
+  var tipToggle = d3.select('#cb-tip').on('click', toggleTip);
+  toggleTip();
+
+  function toggleTip(){
+    console.log("cb-tip clicked!");
+    var node = svg.selectAll(".node");
+    tipEnalbed = !tipEnalbed;
+    if (tipEnalbed) {
+        svg.call(tip);
+        node.on('mouseover', tip.show);
+        node.on('mouseout', tip.hide);
+    } else {
+        node.on('mouseover', null);
+        node.on('mouseout', null);
+    }
+    zoomToggle.node().innerText = 'Zoom is ' + (zoomEnabled ? 'enabled' : 'disabled');
+}; 
+
+  // svg.call(tip);
 
     // define the nodes
     var node = svg.append("g").selectAll(".node")
