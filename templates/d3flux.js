@@ -79,7 +79,8 @@ require(["cola", "d3", "math", "FileSaver", ], function (cola, d3, math, FileSav
 
     // Zoom function
     
-    var zoom = d3.behavior.zoom().scaleExtent([0.5, 8]).on("zoom", zoomed);
+    svg_panel = d3.select("#svg_panel");
+    var zoom = d3.behavior.zoom().scaleExtent([0.5, 4]).on("zoom", zoomed);
     function zoomed() {
       svg.attr("transform",
           "translate(" + zoom.translate() + ")" +
@@ -129,9 +130,27 @@ require(["cola", "d3", "math", "FileSaver", ], function (cola, d3, math, FileSav
       interpolateZoom([view.x, view.y], view.k);
   }
   
-    d3.selectAll('.zoom_button').on('click', zoomClick);
 
-    svg.call(zoom);
+  var zoomEnabled;
+  var zoomToggle = d3.select('#cb-zoom').on('click', toggleZoom);
+  toggleZoom();
+
+  function toggleZoom() {
+    zoomEnabled = !zoomEnabled;
+    console.log("checkbox clicked!");
+    if (zoomEnabled) {
+      svg.call(zoom);
+    } else {
+      svg.on('.zoom', null);
+    }
+    zoomToggle.node().innerText = 'Zoom is ' + (zoomEnabled ? 'enabled' : 'disabled');
+  };
+
+
+
+  d3.selectAll('.zoom_button').on('click', zoomClick);
+
+  // svg.call(zoom);
 
 
     // Code for the figure manipulation buttons.

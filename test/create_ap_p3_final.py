@@ -56,7 +56,7 @@ for obj in itertools.chain(model.reactions, model.metabolites):
 from cobra.flux_analysis import pfba
 pfba(model)
 
-html = flux_map(model, figsize=(748,700), inactive_alpha=0.5, flux_dict={rxn.id: None for rxn in model.reactions})
+html = flux_map(model, figsize=(1280,1024), inactive_alpha=0.5, flux_dict={rxn.id: None for rxn in model.reactions})
 with open('_all_final.html', 'w') as f:
     f.write('<!DOCTYPE html> <html> <head> \
         <title>Test d3flux page</title> \
