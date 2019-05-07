@@ -6,9 +6,7 @@
 "compartment":"",
 "formula":"C10H16N5O13P3",
 "notes":{
-"map_info":{
-"hidden":true
-}
+"map_info":{}
 }
 },
 {
@@ -26,9 +24,7 @@
 "compartment":"",
 "formula":"C10H15N5O10P2",
 "notes":{
-"map_info":{
-"hidden":true
-}
+"map_info":{}
 }
 },
 {
@@ -83,7 +79,8 @@
 "formula":"H2O",
 "notes":{
 "map_info":{
-"hidden":true
+"hidden":true,
+"color":"#FF69B4"
 }
 }
 },
@@ -399,9 +396,7 @@
 "compartment":"",
 "formula":"C10H14N5O7P",
 "notes":{
-"map_info":{
-"hidden":true
-}
+"map_info":{}
 }
 },
 {
@@ -446,9 +441,7 @@
 "compartment":"",
 "formula":"C21H29N7O17P3",
 "notes":{
-"map_info":{
-"hidden":true
-}
+"map_info":{}
 }
 },
 {
@@ -458,7 +451,8 @@
 "formula":"CO2",
 "notes":{
 "map_info":{
-"hidden":true
+"hidden":true,
+"color":"#FF69B4"
 }
 }
 },
@@ -478,7 +472,8 @@
 "formula":"H",
 "notes":{
 "map_info":{
-"hidden":true
+"hidden":true,
+"color":"#FF69B4"
 }
 }
 },
@@ -1436,6 +1431,7 @@
 "cofactors":{
 "nadp_c":{},
 "co2_c":{},
+"nadph_c":{},
 "h_c":{}
 }
 }
@@ -1684,7 +1680,7 @@
 }
 ],
 "genes":[],
-"id":"AP_v2",
+"id":"Aureobasidium pullulans",
 "compartments":{},
 "version":"1"
 }

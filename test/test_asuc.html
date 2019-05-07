@@ -66,7 +66,7 @@
           <button type="button" class="test_button btn btn-danger ">Search Node</button>
 
           <h4>Custom</h4>
-          <button type="button" class="reactionbutton btn btn-success ">Show Reaction Nodes </button>
+          <button type="button" class="reactionbutton btn btn-success ">Show Reaction Nodes</button>
           <!-- feat:(点击后切换路径及箭头颜色，按钮颜色同时变化成相同颜色) -->
           <button type="button" class="path_button btn btn-warning ">Path Color</button>
           <!-- <button type="button" class="marker_button btn btn-warning ">Select Marker</button> -->
@@ -188,7 +188,7 @@ require(["cola", "d3", "math", "FileSaver", ], function (cola, d3, math, FileSav
     }
 
     // Append the CSS styles
-    svg.append("style").text('.node.rxn{fill:#ffa319}.node.rxn.hidden{fill:none;stroke:none;stroke-width:0}.link{fill:none;stroke-linecap:round}text.nodelabel{font-size:12pt;fill:#555;font-family:Arial}text.nodelabel.cofactor{font-size:9.600000000000001pt;fill:#789}text.nodelabel.rxn{fill:#a9a9a9;font-size:9.600000000000001pt;font-style:italic}marker.inactive,.node.inactive,text.inactive{fill-opacity:.5}.link.inactive{stroke-opacity:.5}.d3-tip{line-height:1;font-weight:bold;padding:12px;background:rgba(0,0,0,0.8);color:#fff;border-radius:2px}.d3-tip:after{box-sizing:border-box;display:inline;font-size:10px;width:100%;line-height:1;color:rgba(0,0,0,0.8);position:absolute;text-align:center}.d3-tip.n:after{margin:-1px 0 0 0;top:100%;left:0}');
+    svg.append("style").text('.node.rxn{fill:#ffa319}.node.rxn.hidden{fill:none;stroke:none;stroke-width:0}.link{fill:none;stroke-linecap:round}text.nodelabel{font-size:12pt;fill:#555;font-family:Arial}text.nodelabel.cofactor{font-size:9.600000000000001pt;fill:#789}text.nodelabel.rxn{fill:#a9a9a9;font-size:9.600000000000001pt;font-style:italic}marker.inactive,.node.inactive,text.inactive{fill-opacity:.5}.link.inactive{stroke-opacity:.5}.d3-tip{line-height:1;font-weight:bold;padding:12px;background:rgba(0,0,0,0.8);color:#fff;border-radius:2px}.d3-tip:after{box-sizing:border-box;display:inline;font-size:10px;width:100%;line-height:1;color:rgba(0,0,0,0.8);position:absolute;text-align:center}.d3-tip.n:after{margin:-1px 0 0 0;top:100%;left:0}svg{z-index:5}');
 
     // Zoom function
     
@@ -1146,7 +1146,8 @@ var tip = d3.tip()
         } else return "";
       });
 
-
+    
+    // test            
     // add the text 
     var text = node.append("text")
       .attr("class", function(d) {

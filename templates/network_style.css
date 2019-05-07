@@ -67,3 +67,7 @@ marker.inactive, .node.inactive, text.inactive {
     top: 100%;
     left: 0;
   }
+
+svg {
+  z-index: 5;
+}

@@ -1033,7 +1033,8 @@ var tip = d3.tip()
         } else return "";
       });
 
-
+    
+    // test            
     // add the text 
     var text = node.append("text")
       .attr("class", function(d) {
