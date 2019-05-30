@@ -248,7 +248,7 @@ require(["cola", "d3", "math", "FileSaver", ], function (cola, d3, math, FileSav
   }
   
 
-  var zoomEnabled;
+  var zoomEnabled = false;
   var zoomToggle = d3.select('#cb-zoom').on('click', toggleZoom);
   toggleZoom();
 
