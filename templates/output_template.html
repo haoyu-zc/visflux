@@ -1,6 +1,7 @@
-<div class="container-fluid">
-  <div class="navbar navbar-inverse navbar-static-top" role="navigation">
-    <div class="container">
+<div class="container">
+
+  <div class="navbar navbar-static-top" role="navigation">
+    <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
           <span class="sr-only">Toggle navigation</span>
@@ -26,76 +27,69 @@
       </div>
     </div>
   </div>
-</div>
 
-<div class="container">
-  <div class="row row-offcanvas row-offcanvas-right">
+  <div class="row">
+    <!-- <div class="col-xs-12 col-sm-9"> -->
+    <div class="col-md-10">
+      <div id="d3flux001">
 
-
-
-    <div class="row">
-      <!-- <div class="col-xs-12 col-sm-9"> -->
-      <div class="col-md-10">
-        <div id="{{ figure_id }}">
-          {{ background_svg }}
-        </div>
       </div>
+    </div>
 
-      <!-- <div id="{{ figure_id }}_options" class="col-xs-6 col-sm-3 sidebar-offcanvas"> -->
-      <div id="{{ figure_id }}_options" class="col-md-2">
+    <!-- <div id="d3flux001_options" class="col-xs-6 col-sm-3 sidebar-offcanvas"> -->
+    <div id="d3flux001_options" class="col-md-2 sidebar">
 
-        <div class="btn-group-vertical" role="group" aria-label="btn-group-vertical">
-          <h4>Output</h4>
-          <button type="button" class="download btn btn-primary ">Save JSON</button>
-          <button type="button" class="svgbutton btn btn-info ">Download SVG</button>
+      <div class="btn-group-vertical" role="group" aria-label="btn-group-vertical">
+        <h4>Output</h4>
+        <button type="button" class="download btn btn-primary ">Save JSON</button>
+        <button type="button" class="svgbutton btn btn-info ">Download SVG</button>
 
-          <h4>Traverse</h4>
-          <input type="text" class="form-control" id="info" placeholder="Node info" type="text" value="">
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" value="">
-              Reversibility
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" value="">
-              Enable Animation
-            </label>
-          </div>
-          <button type="button" class="animate_button btn btn-warning ">Downstream Nodes</button>
-
-          <h4>Search</h4>
-          <input type="text" class="form-control" id="search" placeholder="Name or id" type="text" value="">
-          <button type="button" class="test_button btn btn-danger ">Search Node</button>
-
-          <h4>Custom</h4>
-          <button type="button" class="reactionbutton btn btn-success ">Show Reaction Nodes</button>
-          <!-- feat:(点击后切换路径及箭头颜色，按钮颜色同时变化成相同颜色) -->
-          <button type="button" class="path_button btn btn-warning ">Path Color</button>
-          <!-- <button type="button" class="marker_button btn btn-warning ">Select Marker</button> -->
-          <button type="button" class="reset_button btn btn-warning ">Reset</button>
-          <button id="zoom_in" type="button" class="zoom_button btn">Zoom in</button>
-          <button id="zoom_out" type="button" class="zoom_button btn  ">Zoom out</button>
-          <!-- <button type="button" class="test_button btn btn-test ">Alg Test</button> -->
-          <div class="checkbox">
-            <label>
-              <input id="cb-zoom" type="checkbox" value="">
-              Disable mouse zoom
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <input id="cb-tip" type="checkbox" value="">
-              Disable hover tip
-            </label>
-          </div>
-
-
+        <h4>Traverse</h4>
+        <input type="text" class="form-control" id="info" placeholder="Node info" type="text" value="">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="">
+            Reversibility
+          </label>
         </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="">
+            Enable Animation
+          </label>
+        </div>
+        <button type="button" class="animate_button btn btn-warning ">Downstream Nodes</button>
+
+        <h4>Search</h4>
+        <input type="text" class="form-control" id="search" placeholder="Name or id" type="text" value="">
+        <button type="button" class="test_button btn btn-danger ">Search Node</button>
+
+        <h4>Custom</h4>
+        <button type="button" class="reactionbutton btn btn-success ">Show Reaction Nodes</button>
+        <button type="button" class="path_button btn btn-warning ">Path Color</button>
+        <!-- <button type="button" class="marker_button btn btn-warning ">Select Marker</button> -->
+        <button type="button" class="reset_button btn btn-warning ">Reset</button>
+        <button id="zoom_in" type="button" class="zoom_button btn">Zoom in</button>
+        <button id="zoom_out" type="button" class="zoom_button btn  ">Zoom out</button>
+        <!-- <button type="button" class="test_button btn btn-test ">Alg Test</button> -->
+        <div class="checkbox">
+          <label>
+            <input id="cb-zoom" type="checkbox" value="">
+            Disable mouse zoom
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input id="cb-tip" type="checkbox" value="">
+            Disable hover tip
+          </label>
+        </div>
+
+
       </div>
-      <!--/.sidebar-offcanvas-->
-    </div> <!-- row -->
+    </div>
+    <!--/.sidebar-offcanvas-->
+  </div> <!-- row -->
 
     <!-- <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
         <div class="list-group">
