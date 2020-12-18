@@ -3,10 +3,9 @@ var {{ figure_id }}model = {{ modeljson }};
 require.config({
   paths: {
     d3: "https://d3js.org/d3.v3.min",
-    cola: "http://marvl.infotech.monash.edu/webcola/cola.v3.min",
-    math: "https://cdnjs.cloudflare.com/ajax/libs/mathjs/2.4.0/math.min",
-    FileSaver: "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min",
-
+    cola: "https://ialab.it.monash.edu/webcola/cola.min",
+    math: "https://cdnjs.cloudflare.com/ajax/libs/mathjs/7.6.0/math.min",
+    FileSaver: "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min",
   },
   shim: {
     'cola': {
