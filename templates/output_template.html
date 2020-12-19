@@ -1,33 +1,30 @@
-<div class="container">
-
-  <div class="navbar navbar-static-top" role="navigation">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">
-          <i class="fa fa-comments-o"></i>
-          VisMap
-        </a>
-      </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="/">Home</a></li>
-        </ul>
-        <ul class="nav navbar-nav">
-          <li><a href="/">Document</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="/login">Login</a></li>
-        </ul>
-      </div>
-    </div>
+<div class="navbar navbar-static-top" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">
+      <i class="fa fa-comments-o"></i>
+      VisMap
+    </a>
   </div>
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="/">Home</a></li>
+    </ul>
+    <ul class="nav navbar-nav">
+      <li><a href="/">Document</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/login">Login</a></li>
+    </ul>
+  </div>
+</div>
 
+<div class="container-fluid">
   <div class="row">
     <!-- <div class="col-xs-12 col-sm-9"> -->
     <div class="col-md-10">
@@ -66,6 +63,7 @@
 
         <h4>Custom</h4>
         <button type="button" class="reactionbutton btn btn-success ">Show Reaction Nodes</button>
+
         <button type="button" class="path_button btn btn-warning ">Path Color</button>
         <!-- <button type="button" class="marker_button btn btn-warning ">Select Marker</button> -->
         <button type="button" class="reset_button btn btn-warning ">Reset</button>
@@ -75,7 +73,7 @@
         <div class="checkbox">
           <label>
             <input id="cb-zoom" type="checkbox" value="">
-            Disable mouse zoom
+            Enable mouse zoom
           </label>
         </div>
         <div class="checkbox">
@@ -90,8 +88,9 @@
     </div>
     <!--/.sidebar-offcanvas-->
   </div> <!-- row -->
+</div> <!-- contianer-fluid -->
 
-    <!-- <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+<!-- <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
         <div class="list-group">
           <li class="list-group-item active">External Links</li>
           <a href="http://bigg.ucsd.edu/" target="_blank" class="list-group-item">BiGG</a>
@@ -105,10 +104,7 @@
           <a href="https://getbootstrap.com/" target="_blank" class="list-group-item">Bootstrap</a>
         </div>
       </div> -->
-    <!--.sidebar-offcanvas-->
-
-  </div>
-</div>
+<!--.sidebar-offcanvas-->
 
 <script type="text/Javascript">
 {{ javascript_source }}

@@ -76,8 +76,8 @@ require(["cola", "d3", "math", "FileSaver", ], function (cola, d3, math, FileSav
     // Append the CSS styles
     svg.append("style").text('{{ css }}');
 
+
     // Zoom function
-    
     svg_panel = d3.select("#svg_panel");
     var zoom = d3.behavior.zoom().scaleExtent([0.5, 4]).on("zoom", zoomed);
     function zoomed() {
@@ -130,17 +130,17 @@ require(["cola", "d3", "math", "FileSaver", ], function (cola, d3, math, FileSav
   }
   
 
-  var zoomEnabled;
+  var zoomEnabled = false;
   var zoomToggle = d3.select('#cb-zoom').on('click', toggleZoom);
   toggleZoom();
 
   function toggleZoom() {
-    zoomEnabled = !zoomEnabled;
     if (zoomEnabled) {
       svg.call(zoom);
     } else {
       svg.on('.zoom', null);
     }
+    zoomEnabled = !zoomEnabled;
   };
 
                         
