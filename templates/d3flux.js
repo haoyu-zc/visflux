@@ -149,23 +149,6 @@ require(["cola", "d3", "math", "FileSaver", ], function (cola, d3, math, FileSav
   // svg.call(zoom);
 
 
-    // Code for the figure manipulation buttons.
-    d3.select("#{{ figure_id }}_options .reactionbutton").on("click", function() {
-      // Show/hide the reaction control node points.
-      // _note: 把原来的HTML对象储存成jquery对象
-      var $this = $(this);
-      $this.toggleClass('btn-danger');
-      d3.selectAll(".node.rxn")
-        .classed("hidden", function (d, i) {
-          return !d3.select(this).classed("hidden");
-        });
-      if($this.hasClass('btn-danger')){
-        $this.text('Hide Reaction Nodes');
-      } else {
-        $this.text('Show Reaction Nodes');
-      }
-    });
-
     d3.select("#{{ figure_id }}_options .svgbutton").on("click", function() { 
       // Download the svg using SVG Crowbar. This is still very buggy.
 
@@ -1270,8 +1253,9 @@ var tip = d3.tip()
 
 
 
-
-
+// **************************************************************
+// **************************************************************
+// Button Behavior
 
     // Node selection effect
     svg.selectAll("circle").on("mouseover", function(){
@@ -1338,11 +1322,58 @@ var tip = d3.tip()
     //   .style("fill", "purple");
     // });
 
+    // Button: Show Reaction Node
+    // Show/hide the reaction control node points.
+    d3.select("#{{ figure_id }}_options .reactionbutton").on("click", function() {
+      // _note: 把原来的HTML对象储存成jquery对象
+      var $this = $(this);
+      $this.toggleClass('btn-danger');
+      $this.toggleClass('btn-on');
+      d3.selectAll(".node.rxn")
+        .classed("hidden", function (d, i) {
+          return !d3.select(this).classed("hidden");
+        });
+
+      if($this.hasClass('btn-on')){
+        $this.text('Hide Reaction Nodes');
+      } else {
+        $this.text('Show Reaction Nodes');
+      }
+    });
+
+    // Button: Disable Path Color
     d3.select("#{{ figure_id }}_options .path_button").on("click", function() {
-      svg.selectAll(".link")
-      // color is not effective
-      .transition()
-      .style("stroke", "#006633");
+      var $this = $(this);
+      $this.toggleClass('btn-danger');
+      $this.toggleClass('btn-success');
+      $this.toggleClass('btn-off');
+
+        
+      if($this.hasClass('btn-off')){
+        $this.text('Show Path Color');
+
+        svg.selectAll(".link")
+        // color is not effective
+        .transition()
+        .style("stroke", "grey");
+  
+        svg.selectAll("marker")
+        .select("path")
+        .transition()
+        .style("fill", "grey");
+      } else {
+        $this.text('Diasble Path Color');
+
+        svg.selectAll(".link")
+        // color is not effective
+        .transition()
+        .style("stroke", function (d) {return get_flux_stroke(d.rxn);});
+  
+        svg.selectAll("marker")
+        .select("path")
+        .transition()
+        .style("fill", get_flux_stroke);
+      }
     });
 
     d3.select("#{{ figure_id }}_options .reset_button").on("click", function() {

@@ -71,9 +71,9 @@
     <div id="d3flux001_options" class="col-md-2 sidebar">
 
       <div class="btn-group-vertical" role="group" aria-label="btn-group-vertical">
-        <h4>Output</h4>
-        <button type="button" class="download btn btn-primary ">Save JSON</button>
-        <button type="button" class="svgbutton btn btn-info ">Download SVG</button>
+        <h4>Search</h4>
+        <input type="text" class="form-control" id="search" placeholder="Name or id" type="text" value="">
+        <button type="button" class="test_button btn btn-primary ">Search Node</button>
 
         <h4>Traverse</h4>
         <input type="text" class="form-control" id="info" placeholder="Node info" type="text" value="">
@@ -89,16 +89,11 @@
             Enable Animation
           </label>
         </div>
-        <button type="button" class="animate_button btn btn-warning ">Downstream Nodes</button>
-
-        <h4>Search</h4>
-        <input type="text" class="form-control" id="search" placeholder="Name or id" type="text" value="">
-        <button type="button" class="test_button btn btn-danger ">Search Node</button>
+        <button type="button" class="animate_button btn btn-primary ">Downstream Nodes</button>
 
         <h4>Custom</h4>
-        <button type="button" class="reactionbutton btn btn-success ">Show Reaction Nodes</button>
-
-        <button type="button" class="path_button btn btn-warning ">Path Color</button>
+        <button type="button" class="reactionbutton btn btn-success">Show Reaction Nodes</button>
+        <button type="button" class="path_button btn btn-danger">Disable Path Color</button>
         <!-- <button type="button" class="marker_button btn btn-warning ">Select Marker</button> -->
         <button type="button" class="reset_button btn btn-warning ">Reset</button>
         <button id="zoom_in" type="button" class="zoom_button btn">Zoom in</button>

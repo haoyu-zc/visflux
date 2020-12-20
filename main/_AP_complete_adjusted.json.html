@@ -71,9 +71,9 @@
     <div id="d3flux001_options" class="col-md-2 sidebar">
 
       <div class="btn-group-vertical" role="group" aria-label="btn-group-vertical">
-        <h4>Output</h4>
-        <button type="button" class="download btn btn-primary ">Save JSON</button>
-        <button type="button" class="svgbutton btn btn-info ">Download SVG</button>
+        <h4>Search</h4>
+        <input type="text" class="form-control" id="search" placeholder="Name or id" type="text" value="">
+        <button type="button" class="test_button btn btn-primary ">Search Node</button>
 
         <h4>Traverse</h4>
         <input type="text" class="form-control" id="info" placeholder="Node info" type="text" value="">
@@ -89,16 +89,11 @@
             Enable Animation
           </label>
         </div>
-        <button type="button" class="animate_button btn btn-warning ">Downstream Nodes</button>
-
-        <h4>Search</h4>
-        <input type="text" class="form-control" id="search" placeholder="Name or id" type="text" value="">
-        <button type="button" class="test_button btn btn-danger ">Search Node</button>
+        <button type="button" class="animate_button btn btn-primary ">Downstream Nodes</button>
 
         <h4>Custom</h4>
-        <button type="button" class="reactionbutton btn btn-success ">Show Reaction Nodes</button>
-
-        <button type="button" class="path_button btn btn-warning ">Path Color</button>
+        <button type="button" class="reactionbutton btn btn-success">Show Reaction Nodes</button>
+        <button type="button" class="path_button btn btn-danger">Disable Path Color</button>
         <!-- <button type="button" class="marker_button btn btn-warning ">Select Marker</button> -->
         <button type="button" class="reset_button btn btn-warning ">Reset</button>
         <button id="zoom_in" type="button" class="zoom_button btn">Zoom in</button>
@@ -289,23 +284,6 @@ require(["cola", "d3", "math", "FileSaver", ], function (cola, d3, math, FileSav
 
   // svg.call(zoom);
 
-
-    // Code for the figure manipulation buttons.
-    d3.select("#d3flux001_options .reactionbutton").on("click", function() {
-      // Show/hide the reaction control node points.
-      // _note: 把原来的HTML对象储存成jquery对象
-      var $this = $(this);
-      $this.toggleClass('btn-danger');
-      d3.selectAll(".node.rxn")
-        .classed("hidden", function (d, i) {
-          return !d3.select(this).classed("hidden");
-        });
-      if($this.hasClass('btn-danger')){
-        $this.text('Hide Reaction Nodes');
-      } else {
-        $this.text('Show Reaction Nodes');
-      }
-    });
 
     d3.select("#d3flux001_options .svgbutton").on("click", function() { 
       // Download the svg using SVG Crowbar. This is still very buggy.
@@ -1411,8 +1389,9 @@ var tip = d3.tip()
 
 
 
-
-
+// **************************************************************
+// **************************************************************
+// Button Behavior
 
     // Node selection effect
     svg.selectAll("circle").on("mouseover", function(){
@@ -1479,11 +1458,58 @@ var tip = d3.tip()
     //   .style("fill", "purple");
     // });
 
+    // Button: Show Reaction Node
+    // Show/hide the reaction control node points.
+    d3.select("#d3flux001_options .reactionbutton").on("click", function() {
+      // _note: 把原来的HTML对象储存成jquery对象
+      var $this = $(this);
+      $this.toggleClass('btn-danger');
+      $this.toggleClass('btn-on');
+      d3.selectAll(".node.rxn")
+        .classed("hidden", function (d, i) {
+          return !d3.select(this).classed("hidden");
+        });
+
+      if($this.hasClass('btn-on')){
+        $this.text('Hide Reaction Nodes');
+      } else {
+        $this.text('Show Reaction Nodes');
+      }
+    });
+
+    // Button: Disable Path Color
     d3.select("#d3flux001_options .path_button").on("click", function() {
-      svg.selectAll(".link")
-      // color is not effective
-      .transition()
-      .style("stroke", "#006633");
+      var $this = $(this);
+      $this.toggleClass('btn-danger');
+      $this.toggleClass('btn-success');
+      $this.toggleClass('btn-off');
+
+        
+      if($this.hasClass('btn-off')){
+        $this.text('Show Path Color');
+
+        svg.selectAll(".link")
+        // color is not effective
+        .transition()
+        .style("stroke", "grey");
+  
+        svg.selectAll("marker")
+        .select("path")
+        .transition()
+        .style("fill", "grey");
+      } else {
+        $this.text('Diasble Path Color');
+
+        svg.selectAll(".link")
+        // color is not effective
+        .transition()
+        .style("stroke", function (d) {return get_flux_stroke(d.rxn);});
+  
+        svg.selectAll("marker")
+        .select("path")
+        .transition()
+        .style("fill", get_flux_stroke);
+      }
     });
 
     d3.select("#d3flux001_options .reset_button").on("click", function() {
