@@ -71,3 +71,7 @@ marker.inactive, .node.inactive, text.inactive {
 svg {
   z-index: 5;
 }
+
+#navarea {
+  margin-bottom: 60px;
+}
