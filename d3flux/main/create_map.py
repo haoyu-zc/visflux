@@ -1,6 +1,7 @@
 import cobra
 import sys
 
+
 import d3flux as d3f
 from d3flux.core.flux_layouts import render_model
 from d3flux import flux_map
@@ -63,12 +64,12 @@ pfba(model)
 html = flux_map(model, figsize=(1280,1024), inactive_alpha=0.5, flux_dict={rxn.id: None for rxn in model.reactions})
 with open(model_name + '.html', 'w') as f:
     f.write('<!DOCTYPE html> <html> <head>' +
-        '<title>' + model_name + '</title> \
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js" defer async="true" integrity="sha256-Vjusm6Kh2U7/tb6jBh+MOfxnaf2TWsTph34bMKhC1Qc=" crossorigin="anonymous"></script> \
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script> \
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" defer async="true" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> \
-        <script src="../templates/point2d.js"></script>\
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> \
+        '<title>' + model_name + '</title>\n \
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js" defer async="true" integrity="sha256-Vjusm6Kh2U7/tb6jBh+MOfxnaf2TWsTph34bMKhC1Qc=" crossorigin="anonymous"></script>\n \
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>\n \
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" defer async="true" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>\n \
+        <script src="../templates/point2d.js"></script>\n \
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">\n \
         </head> <body>')
     f.write(html.data)
     f.write('</body> </html>')
