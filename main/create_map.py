@@ -1,5 +1,6 @@
 import cobra
 import sys
+import json
 
 
 import d3flux as d3f
@@ -7,6 +8,7 @@ from d3flux.core.flux_layouts import render_model
 from d3flux import flux_map
 
 from jinja2 import Template
+
 
 custom_css = \
 """
@@ -61,6 +63,25 @@ for obj in itertools.chain(model.reactions, model.metabolites):
 from cobra.flux_analysis import pfba
 pfba(model)
 
+
+# Merge JS dependencies into d3flux.js
+with open('../templates/include.json') as f:
+    data = json.load(f)
+
+print (data['local'])
+
+include_files = data['local']
+
+merged_js = open('../templates/d3flux.js', 'r+')
+# Clear exsisting content
+merged_js.truncate(0)
+merged_js = open('../templates/d3flux.js', mode = 'w', encoding = 'utf-8')
+for include_file,path in include_files.items():
+    temp = open(path, mode = 'r', encoding = 'utf-8')
+    merged_js.write(temp.read())
+
+
+# Output html file
 html = flux_map(model, figsize=(1280,1024), inactive_alpha=0.5, flux_dict={rxn.id: None for rxn in model.reactions})
 with open(model_name + '.html', 'w') as f:
     f.write('<!DOCTYPE html> <html> <head>' +

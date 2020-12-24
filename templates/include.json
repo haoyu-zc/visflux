@@ -1,0 +1,10 @@
+{
+    "local": {
+        "d3flux-core": "../include/d3flux-core.js",
+        "point2d": "../include/point2d.js"
+    },
+
+    "cdn": {
+        
+    }
+}
