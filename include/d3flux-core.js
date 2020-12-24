@@ -1255,6 +1255,11 @@ var tip = d3.tip()
 
 // **************************************************************
 // **************************************************************
+// **************************************************************
+// Author: Haoyu Zhang
+// Costom functions for my project VisMap
+
+
 // Button Behavior
 
     // Node selection effect
@@ -1322,9 +1327,10 @@ var tip = d3.tip()
     //   .style("fill", "purple");
     // });
 
-    // Button: Show Reaction Node
+
+    // Button:"Show Reaction Node"
     // Show/hide the reaction control node points.
-    d3.select("#{{ figure_id }}_options .reactionbutton").on("click", function() {
+    d3.select("#btn_reaction").on("click", function() {
       // _note: 把原来的HTML对象储存成jquery对象
       var $this = $(this);
       $this.toggleClass('btn-danger');
@@ -1341,14 +1347,14 @@ var tip = d3.tip()
       }
     });
 
-    // Button: Disable Path Color
-    d3.select("#{{ figure_id }}_options .path_button").on("click", function() {
+
+    // Button:"Disable Path Color"
+    d3.select("#btn_path-color").on("click", function() {
       var $this = $(this);
       $this.toggleClass('btn-danger');
       $this.toggleClass('btn-success');
       $this.toggleClass('btn-off');
 
-        
       if($this.hasClass('btn-off')){
         $this.text('Show Path Color');
 
@@ -1376,7 +1382,9 @@ var tip = d3.tip()
       }
     });
 
-    d3.select("#{{ figure_id }}_options .reset_button").on("click", function() {
+
+    // Button:"Reset"
+    d3.select("#btn_reset").on("click", function() {
       svg.selectAll(".link")
       // color is not effective
       .transition()
@@ -1400,7 +1408,9 @@ var tip = d3.tip()
 
     });
 
-    d3.select("#{{ figure_id }}_options .animate_button").on("click", function() {
+
+    // Button:"Downsteam Nodes"
+    d3.select("#btn_downstream").on("click", function() {
       //svg.selectAll(".metabolite")
       graph = new Graph();
       // add unhidden metabolites
