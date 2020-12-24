@@ -3,9 +3,10 @@ var {{ figure_id }}model = {{ modeljson }};
 require.config({
   paths: {
     d3: "../include/d3.v3.min",
-    cola: "https://ialab.it.monash.edu/webcola/cola.min",
-    math: "https://cdnjs.cloudflare.com/ajax/libs/mathjs/7.6.0/math.min",
-    FileSaver: "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min",
+    cola: "../include/cola.min",
+    math: "../include/math.min",
+    FileSaver: "../include/FileSaver.min",
+    point2d: "../include/point2d",
   },
   shim: {
     'cola': {
@@ -14,7 +15,7 @@ require.config({
   }
 });
 
-require(["cola", "d3", "math", "FileSaver", ], function (cola, d3, math, FileSaver) {
+require(["cola", "d3", "math", "FileSaver", "point2d", ], function (cola, d3, math, FileSaver) {
 
   function main(model) {
     // Render a metabolic network representation of a cobra.Model object.
