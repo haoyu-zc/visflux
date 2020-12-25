@@ -12,18 +12,4 @@ __pycache__
 /dist/
 
 # Python egg metadata, regenerated from source files by setuptools.
-/*.egg-info
-test/test_asuc.html
-test/test_asuc.html
-test/test_asuc.html
-test/test_asuc.html
-test/test_ap.html
-test/test_asuc.html
-test/test_asuc - Copy.html
-test/test_asuc.html
-test/create_ap_p3_final.py
-test/create_asuc.py
-test/_all_final.html
-test/create_ap_p3_final.py
-test/_amino_final.html
-test/create_ap_p3_final.py
+visflux/test
