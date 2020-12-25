@@ -1501,7 +1501,7 @@ d3.select("#{{ figure_id }}_options .test_button").on("click", function () {
     svg.selectAll(".metabolite")
       .attr("r", get_node_radius);
 
-    d3.select("#{{ figure_id }}_options .download")
+    d3.select("#menu_save-json")
       .on("click", function () {
 
         // Add position data to model nodes

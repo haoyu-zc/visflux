@@ -88,3 +88,7 @@ svg {
     overflow-y: auto;
     border-right: 1px solid #eee;;
 }
+
+.menu_item {
+  cursor: pointer;
+}
