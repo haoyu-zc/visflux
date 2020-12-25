@@ -1,5 +1,5 @@
 docs/* linguist-documentation
-examples/* linguist-documentation
-test/* linguist-documentation
+visflux/examples/* linguist-documentation
+visflux/test/* linguist-documentation
 
-vendor/* linguist-vendored
+visflux/vendor/* linguist-vendored
