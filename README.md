@@ -23,7 +23,7 @@ $ create_map.py model.json
 python ./create_map.py ./model.json
 ```
 
-Now you will get a single html file named "model.html" in the same directory. Open it in a browser and you shall see the visualization result. Note that an Internet connection is required since this webpage uses CDN service.
+Now you will get a single html file named "model.html" in the same directory. Open it in a browser and you shall see the visualization result. Note that an Internet connection is required since this webpage uses CDN services.
 
 ## Documentation for D3flux
 
