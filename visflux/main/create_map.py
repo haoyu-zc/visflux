@@ -3,9 +3,9 @@ import sys
 import json
 
 
-import d3flux_vis as d3f
-from d3flux_vis.core.flux_layouts import render_model
-from d3flux_vis import flux_map
+import visflux as d3f
+from visflux.core.flux_layouts import render_model
+from visflux import flux_map
 
 from jinja2 import Template
 

@@ -1,4 +1,4 @@
-# D3flux
+# Visflux
 
 [![Build Status](https://travis-ci.org/pstjohn/d3flux.svg?branch=master)](https://travis-ci.org/pstjohn/d3flux)
 [![PyPI version](https://badge.fury.io/py/d3flux.svg)](https://badge.fury.io/py/d3flux)
