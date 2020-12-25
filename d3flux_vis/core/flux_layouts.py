@@ -14,7 +14,7 @@ from csscompressor import compress
 
 from cobra.io.json import model_to_dict
 
-import d3flux
+import d3flux_vis
 
 def flux_map(cobra_model,
              excluded_metabolites=None, excluded_reactions=None,
