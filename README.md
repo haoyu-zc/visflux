@@ -1,28 +1,30 @@
 # Visflux
 
-[![Build Status](https://travis-ci.org/pstjohn/d3flux.svg?branch=master)](https://travis-ci.org/pstjohn/d3flux)
-[![PyPI version](https://badge.fury.io/py/d3flux.svg)](https://badge.fury.io/py/d3flux)
+This a local python package based on d3flux, aimed for visualization of cobra models, providing basic interactive functionalities.
 
-This package implements a d3.js based visualization tool for cobrapy models.
-
-![](https://cloud.githubusercontent.com/assets/2576846/23142805/09426396-f77b-11e6-9c63-028a6c16a367.png)
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/b53d237f-4de9-49ef-88f5-78904d7f1e01.png)
 
 *Note*: This is still very much alpha software. Many things won't work :)
 
-
 ## Install
-Install via pip:
-```
-pip install d3flux
-```
 
-Or, setup a development version by cloning the repo
+1. Download this repo as a zip file. Unpack it and navigate to the root directory.
+2. Install via pip locally:
 
 ```
-git clone git@github.com:pstjohn/d3flux.git
-cd d3flux
-python setup.py develop
+pip install .
 ```
 
-## Documentation
+3. Go to the directory ./visflux/main, copy file "create_map.py" to a desired directory with a COBRA model in JSON format, then execute the python script. Example:
+
+```
+ls
+$ create_map.py model.json
+python ./create_map.py ./model.json
+```
+
+Now you will get a single html file named "model.html" in the same directory. Open it in a browser and you shall see the visualization result. Note that an Internet connection is required since this webpage uses CDN service.
+
+## Documentation for D3flux
+
 [https://pstjohn.github.io/d3flux/](https://pstjohn.github.io/d3flux/)
