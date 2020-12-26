@@ -10,9 +10,6 @@ template_path = os.path.dirname(visflux.__file__) + os.path.sep + 'templates'
 with open(template_path + os.path.sep + 'include.json') as f:
     data = json.load(f)
 
-
-print(data['local'])
-
 include_files = data['local']
 
 merged_js = open(template_path + os.path.sep + 'd3flux.js', 'r+')
