@@ -29,6 +29,7 @@ css = Template(custom_css).render(
 if (len(sys.argv) == 1):
     raise RuntimeError('JSON file name not provided.')
 model_name = sys.argv[1]
+name_stem = model_name.rsplit('.', 1)[0].rsplit('/', 1)[0]
 model = cobra.io.load_json_model(model_name)
 
 # model.add_reaction(ecoli.reactions.ALDD2x)
@@ -69,9 +70,9 @@ pfba(model)
 # Output html file
 html = flux_map(model, figsize=(1280, 1024), inactive_alpha=0.5,
                 flux_dict={rxn.id: None for rxn in model.reactions})
-with open(model_name + '.html', 'w') as f:
+with open('./' + name_stem + '.html', 'w') as f:
     f.write('<!DOCTYPE html> <html> <head>' +
-            '<title>' + model_name + '</title>\n \
+            '<title>' + name_stem + '</title>\n \
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js" defer async="true" integrity="sha256-Vjusm6Kh2U7/tb6jBh+MOfxnaf2TWsTph34bMKhC1Qc=" crossorigin="anonymous"></script>\n \
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>\n \
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" defer async="true" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>\n \
