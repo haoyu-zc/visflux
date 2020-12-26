@@ -1,9 +1,12 @@
+from cobra.flux_analysis import pfba
+import itertools
 import cobra
 import sys
 import json
+import os
 
 
-import visflux as d3f
+import visflux
 from visflux.core.flux_layouts import render_model
 from visflux import flux_map
 
@@ -11,7 +14,7 @@ from jinja2 import Template
 
 
 custom_css = \
-"""
+    """
 {% for item in items %}
 text#{{ item }} {
     font-weight: 900;
@@ -22,7 +25,8 @@ text.cofactor {
 }
 """
 
-css = Template(custom_css).render(items=['succ_c', 'ac_c', 'etoh_c', 'for_c', 'co2_c', 'lac__D_c'])
+css = Template(custom_css).render(
+    items=['succ_c', 'ac_c', 'etoh_c', 'for_c', 'co2_c', 'lac__D_c'])
 
 if (len(sys.argv) == 1):
     raise RuntimeError('JSON file name not provided.')
@@ -36,7 +40,6 @@ model = cobra.io.load_json_model(model_name)
 #model.reactions.EX_glc_e.lower_bound = -1
 #model.reactions.EX_xyl_e.lower_bound = -6
 
-import itertools
 
 for obj in itertools.chain(model.reactions, model.metabolites):
     try:
@@ -46,7 +49,6 @@ for obj in itertools.chain(model.reactions, model.metabolites):
             obj.notes['map_info'] = {}
     except KeyError:
         pass
-
 
 
 # model.reactions.PPCK.notes['map_info']['group'] = 2
@@ -60,32 +62,38 @@ for obj in itertools.chain(model.reactions, model.metabolites):
 # model.metabolites.get_by_id('f6p_c').notes['map_info']['align'] = 'center left'
 
 # test
-from cobra.flux_analysis import pfba
 pfba(model)
 
 
 # Merge JS dependencies into d3flux.js
-with open('../templates/include.json') as f:
+
+# Load the enviroment of visflux
+template_path = os.path.dirname(visflux.__file__) + os.path.sep + 'templates'
+
+with open(template_path + os.path.sep + 'include.json') as f:
     data = json.load(f)
 
-print (data['local'])
+
+print(data['local'])
 
 include_files = data['local']
 
-merged_js = open('../templates/d3flux.js', 'r+')
+merged_js = open(template_path + os.path.sep + 'd3flux.js', 'r+')
 # Clear exsisting content
 merged_js.truncate(0)
-merged_js = open('../templates/d3flux.js', mode = 'w', encoding = 'utf-8')
-for include_file,path in include_files.items():
-    temp = open(path, mode = 'r', encoding = 'utf-8')
+
+merged_js = open(template_path + os.path.sep +'d3flux.js', mode='w', encoding='utf-8')
+for include_file, path in include_files.items():
+    temp = open(path, mode='r', encoding='utf-8')
     merged_js.write(temp.read())
 
 
 # Output html file
-html = flux_map(model, figsize=(1280,1024), inactive_alpha=0.5, flux_dict={rxn.id: None for rxn in model.reactions})
+html = flux_map(model, figsize=(1280, 1024), inactive_alpha=0.5,
+                flux_dict={rxn.id: None for rxn in model.reactions})
 with open(model_name + '.html', 'w') as f:
     f.write('<!DOCTYPE html> <html> <head>' +
-        '<title>' + model_name + '</title>\n \
+            '<title>' + model_name + '</title>\n \
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js" defer async="true" integrity="sha256-Vjusm6Kh2U7/tb6jBh+MOfxnaf2TWsTph34bMKhC1Qc=" crossorigin="anonymous"></script>\n \
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>\n \
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" defer async="true" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>\n \
